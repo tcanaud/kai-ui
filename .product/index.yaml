@@ -1,5 +1,5 @@
 product_version: "1.0"
-updated: "2026-02-19T22:49:33.448Z"
+updated: "2026-02-19T23:00:00.000Z"
 
 feedbacks:
   total: 0
@@ -17,14 +17,122 @@ feedbacks:
   items: []
 
 backlogs:
-  total: 0
+  total: 18
   by_status:
-    open: 0
+    open: 18
     in-progress: 0
     done: 0
     promoted: 0
     cancelled: 0
-  items: []
+  items:
+    - id: "BL-001"
+      title: "Terminal panel — xterm.js + tmux integration"
+      status: "open"
+      category: "new-feature"
+      priority: "high"
+      tags: ["v1.1", "panel", "terminal"]
+    - id: "BL-002"
+      title: "Code editor panel — code-server integration"
+      status: "open"
+      category: "new-feature"
+      priority: "high"
+      tags: ["v1.2", "panel", "editor"]
+    - id: "BL-003"
+      title: "Playbook dashboard panel — live session tracking"
+      status: "open"
+      category: "new-feature"
+      priority: "medium"
+      tags: ["v1.3", "panel", "playbook"]
+    - id: "BL-004"
+      title: "AI Chat panel — Claude conversation interface"
+      status: "open"
+      category: "new-feature"
+      priority: "medium"
+      tags: ["v1.4", "panel", "ai", "chat"]
+    - id: "BL-005"
+      title: "AI Assistant overlay — contextual AI suggestions"
+      status: "open"
+      category: "new-feature"
+      priority: "medium"
+      tags: ["v1.5", "panel", "ai", "assistant"]
+    - id: "BL-006"
+      title: "Panel drag-and-drop — custom layout system"
+      status: "open"
+      category: "evolution"
+      priority: "medium"
+      tags: ["v2.0", "layout", "ux"]
+    - id: "BL-007"
+      title: "State persistence — .kaiui/ directory"
+      status: "open"
+      category: "new-feature"
+      priority: "medium"
+      tags: ["v2.0", "persistence", "state"]
+    - id: "BL-008"
+      title: "Kai governance dashboard — feature/agreement/knowledge overview"
+      status: "open"
+      category: "new-feature"
+      priority: "high"
+      tags: ["v2.0", "governance", "dashboard"]
+    - id: "BL-009"
+      title: "Multi-terminal support — split terminal within panel"
+      status: "open"
+      category: "evolution"
+      priority: "low"
+      tags: ["v2.5", "terminal", "split"]
+    - id: "BL-010"
+      title: "Keybinding system — vim-inspired keyboard navigation"
+      status: "open"
+      category: "new-feature"
+      priority: "medium"
+      tags: ["v2.5", "keybindings", "ux"]
+    - id: "BL-011"
+      title: "Theme engine — customizable cyberpunk variants"
+      status: "open"
+      category: "evolution"
+      priority: "low"
+      tags: ["v2.5", "theme", "design"]
+    - id: "BL-012"
+      title: "Real-time file watcher — live artifact updates"
+      status: "open"
+      category: "new-feature"
+      priority: "medium"
+      tags: ["v2.0", "realtime", "filesystem"]
+    - id: "BL-013"
+      title: "Session management — archive, delete, rename"
+      status: "open"
+      category: "evolution"
+      priority: "medium"
+      tags: ["v2.0", "session", "management"]
+    - id: "BL-014"
+      title: "Notification system — toast alerts for events"
+      status: "open"
+      category: "new-feature"
+      priority: "low"
+      tags: ["v2.5", "notifications", "ux"]
+    - id: "BL-015"
+      title: "Plugin system — third-party panel extensions"
+      status: "open"
+      category: "new-feature"
+      priority: "low"
+      tags: ["v3.0", "plugin", "extensibility"]
+    - id: "BL-016"
+      title: "Multi-project support — switch between kai repos"
+      status: "open"
+      category: "new-feature"
+      priority: "medium"
+      tags: ["v3.0", "multi-project"]
+    - id: "BL-017"
+      title: "Git integration panel — visual branch/worktree management"
+      status: "open"
+      category: "new-feature"
+      priority: "medium"
+      tags: ["v3.0", "git", "panel"]
+    - id: "BL-018"
+      title: "Electron/Tauri wrapper — standalone desktop app"
+      status: "open"
+      category: "new-feature"
+      priority: "low"
+      tags: ["v3.0", "desktop", "electron"]
 
 metrics:
   feedback_to_backlog_rate: 0.0
