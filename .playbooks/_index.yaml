@@ -9,6 +9,10 @@ playbooks:
     file: "playbooks/auto-feature.yaml"
     description: "Full feature workflow from plan to PR"
     steps: 8
+  - name: "backlog-to-pr"
+    file: "playbooks/backlog-to-pr.yaml"
+    description: "Full pipeline from an open backlog to a merged-ready PR — promote, specify, plan, implement, validate, and ship"
+    steps: 11
   - name: "auto-validate"
     file: "playbooks/auto-validate.yaml"
     description: "QA validation: plan and run"

@@ -1,0 +1,131 @@
+name: "backlog-to-pr"
+description: "Full pipeline from an open backlog to a merged-ready PR — promote, specify, plan, implement, validate, and ship"
+version: "1.0"
+
+args:
+  - name: "backlog"
+    description: "Backlog ID to process (e.g., BL-001)"
+    required: true
+
+steps:
+  - id: "inspect"
+    command: "/product.backlog"
+    args: "{{backlog}} — Inspect this backlog, confirm it is open or in-progress, and summarize scope, priority, and linked feedbacks."
+    autonomy: "auto"
+    preconditions: []
+    postconditions: []
+    error_policy: "stop"
+    escalation_triggers: []
+
+  - id: "promote"
+    command: "/product.promote"
+    args: "{{backlog}}"
+    autonomy: "auto"
+    preconditions: []
+    postconditions: []
+    error_policy: "stop"
+    escalation_triggers:
+      - "subagent_error"
+
+  - id: "specify"
+    command: "/speckit.specify"
+    args: "Use the promoted feature ID from the previous step. Write a full specification based on the backlog scope, acceptance criteria, and linked feedbacks."
+    autonomy: "auto"
+    preconditions: []
+    postconditions:
+      - "spec_exists"
+    error_policy: "gate"
+    escalation_triggers:
+      - "postcondition_fail"
+      - "subagent_error"
+
+  - id: "plan"
+    command: "/speckit.plan"
+    args: ""
+    autonomy: "auto"
+    preconditions:
+      - "spec_exists"
+    postconditions:
+      - "plan_exists"
+    error_policy: "stop"
+    escalation_triggers: []
+
+  - id: "tasks"
+    command: "/speckit.tasks"
+    args: ""
+    autonomy: "auto"
+    preconditions:
+      - "plan_exists"
+    postconditions:
+      - "tasks_exists"
+    error_policy: "stop"
+    escalation_triggers: []
+
+  - id: "agreement"
+    command: "/agreement.create"
+    args: "Create agreement for the promoted feature using the spec, plan, and tasks."
+    autonomy: "auto"
+    preconditions:
+      - "tasks_exists"
+    postconditions:
+      - "agreement_exists"
+    error_policy: "gate"
+    escalation_triggers:
+      - "subagent_error"
+
+  - id: "implement"
+    command: "/speckit.implement"
+    args: ""
+    autonomy: "auto"
+    preconditions:
+      - "agreement_exists"
+    postconditions: []
+    error_policy: "retry_once"
+    escalation_triggers:
+      - "postcondition_fail"
+      - "subagent_error"
+
+  - id: "agreement-check"
+    command: "/agreement.check"
+    args: "Check the implementation against the agreement. Report any drift or breaking changes."
+    autonomy: "gate_on_breaking"
+    preconditions: []
+    postconditions:
+      - "agreement_pass"
+    error_policy: "gate"
+    escalation_triggers:
+      - "agreement_breaking"
+
+  - id: "qa-plan"
+    command: "/qa.plan"
+    args: "Generate test plan based on the spec and agreement for the promoted feature."
+    autonomy: "auto"
+    preconditions:
+      - "agreement_pass"
+    postconditions:
+      - "qa_plan_exists"
+    error_policy: "stop"
+    escalation_triggers: []
+
+  - id: "qa-run"
+    command: "/qa.run"
+    args: "Execute the test plan and produce a verdict."
+    autonomy: "auto"
+    preconditions:
+      - "qa_plan_exists"
+    postconditions:
+      - "qa_verdict_pass"
+    error_policy: "gate"
+    escalation_triggers:
+      - "verdict_fail"
+
+  - id: "pr"
+    command: "/feature.pr"
+    args: "Create PR for the feature. Include backlog {{backlog}} traceability and linked feedbacks in the description."
+    autonomy: "gate_always"
+    preconditions:
+      - "qa_verdict_pass"
+    postconditions:
+      - "pr_created"
+    error_policy: "stop"
+    escalation_triggers: []
