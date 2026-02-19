@@ -1,0 +1,67 @@
+name: "pm-digest"
+description: "Full PM pipeline — triage new feedbacks into backlogs, check data integrity, review backlogs, promote high-priority items to features, and produce a health dashboard"
+version: "1.0"
+
+args: []
+
+steps:
+  - id: "health-check-pre"
+    command: "/product.check"
+    args: ""
+    model: "haiku"
+    autonomy: "auto"
+    preconditions: []
+    postconditions: []
+    error_policy: "gate"
+    escalation_triggers:
+      - "postcondition_fail"
+
+  - id: "triage"
+    command: "/product.triage"
+    args: ""
+    autonomy: "auto"
+    preconditions: []
+    postconditions: []
+    error_policy: "gate"
+    escalation_triggers:
+      - "subagent_error"
+
+  - id: "health-check-post"
+    command: "/product.check"
+    args: ""
+    model: "haiku"
+    autonomy: "auto"
+    preconditions: []
+    postconditions: []
+    error_policy: "gate"
+    escalation_triggers:
+      - "postcondition_fail"
+
+  - id: "backlog-review"
+    command: "/product.backlog"
+    args: ""
+    autonomy: "auto"
+    preconditions: []
+    postconditions: []
+    error_policy: "gate"
+    escalation_triggers: []
+
+  - id: "promote"
+    command: "/product.promote"
+    args: "Analyze all open backlogs. Promote ONLY items that meet ALL of these criteria: (1) priority is critical or high, (2) has at least 2 linked feedbacks OR is a critical-bug, (3) is not a duplicate of an existing feature. For each qualifying item, run /product.promote BL-xxx. If no items qualify, skip and report why."
+    autonomy: "auto"
+    preconditions: []
+    postconditions: []
+    error_policy: "gate"
+    escalation_triggers:
+      - "subagent_error"
+
+  - id: "dashboard"
+    command: "/product.dashboard"
+    args: ""
+    model: "haiku"
+    autonomy: "auto"
+    preconditions: []
+    postconditions: []
+    error_policy: "stop"
+    escalation_triggers: []

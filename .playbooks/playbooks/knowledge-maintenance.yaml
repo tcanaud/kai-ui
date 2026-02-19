@@ -1,0 +1,37 @@
+name: "knowledge-maintenance"
+description: "Refresh knowledge index, check freshness of all guides, and report stale or outdated documentation"
+version: "1.0"
+
+args: []
+
+steps:
+  - id: "refresh"
+    command: "/knowledge.refresh"
+    args: ""
+    model: "haiku"
+    autonomy: "auto"
+    preconditions: []
+    postconditions: []
+    error_policy: "stop"
+    escalation_triggers: []
+
+  - id: "check-freshness"
+    command: "/knowledge.check"
+    args: ""
+    model: "haiku"
+    autonomy: "auto"
+    preconditions: []
+    postconditions: []
+    error_policy: "gate"
+    escalation_triggers:
+      - "postcondition_fail"
+
+  - id: "intake-findings"
+    command: "/product.intake"
+    args: "For each STALE or OUTDATED guide found in the knowledge check: create a feedback with category=optimization describing which guide needs updating and why. If all guides are fresh, skip and report that no feedbacks are needed."
+    model: "haiku"
+    autonomy: "auto"
+    preconditions: []
+    postconditions: []
+    error_policy: "gate"
+    escalation_triggers: []
