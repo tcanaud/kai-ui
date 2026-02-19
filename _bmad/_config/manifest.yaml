@@ -1,0 +1,49 @@
+installation:
+  version: 6.0.1
+  installDate: 2026-02-19T23:50:10.416Z
+  lastUpdated: 2026-02-19T23:50:10.416Z
+modules:
+  - name: core
+    version: 6.0.1
+    installDate: 2026-02-19T23:50:09.354Z
+    lastUpdated: 2026-02-19T23:50:09.354Z
+    source: built-in
+    npmPackage: null
+    repoUrl: null
+  - name: bmm
+    version: 6.0.1
+    installDate: 2026-02-19T23:50:02.553Z
+    lastUpdated: 2026-02-19T23:50:09.354Z
+    source: built-in
+    npmPackage: null
+    repoUrl: null
+  - name: bmb
+    version: 0.1.6
+    installDate: 2026-02-19T23:50:04.280Z
+    lastUpdated: 2026-02-19T23:50:09.709Z
+    source: external
+    npmPackage: bmad-builder
+    repoUrl: https://github.com/bmad-code-org/bmad-builder
+  - name: tea
+    version: 1.2.1
+    installDate: 2026-02-19T23:50:05.562Z
+    lastUpdated: 2026-02-19T23:50:10.068Z
+    source: external
+    npmPackage: bmad-method-test-architecture-enterprise
+    repoUrl: https://github.com/bmad-code-org/bmad-method-test-architecture-enterprise
+  - name: cis
+    version: 0.1.6
+    installDate: 2026-02-19T23:50:07.245Z
+    lastUpdated: 2026-02-19T23:50:10.416Z
+    source: external
+    npmPackage: bmad-creative-intelligence-suite
+    repoUrl: https://github.com/bmad-code-org/bmad-module-creative-intelligence-suite
+ides:
+  - claude-code
+  - name: mermaid-workbench
+    version: 1.0.0
+    installDate: AUTO
+    lastUpdated: AUTO
+    source: external
+    npmPackage: mermaid-workbench
+    repoUrl: null
