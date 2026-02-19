@@ -1,10 +1,36 @@
 version: "1.0"
-generated: "2026-02-19T22:49:32.741Z"
+generated: "2026-02-19T23:20:00.717Z"
 
-guides: []
+guides:
+  - id: commit-and-push
+    title: "How to commit and push in the kai monorepo"
+    path: .knowledge/guides/commit-and-push.md
+    summary: "The kai repo is a git-submodule monorepo: the parent repo tracks pointers to independent package repos under `package..."
+    topics: [commit, push, git, submodule, tag, publish, version bump, ci/cd, workflow]
+    status: stale
+  - id: project-philosophy
+    title: "kai philosophy — vision, dogmas, and design principles"
+    path: .knowledge/guides/project-philosophy.md
+    summary: "kai is a project governance system that lives entirely inside the repository. No external service, no database, no da..."
+    topics: [philosophy, vision, dogma, principles, architecture, agreements, drift, portability, governance]
+    status: stale
+  - id: qa-testing-mcp-chrome
+    title: "QA Testing avec MCP Chrome DevTools"
+    path: .knowledge/guides/qa-testing-mcp-chrome.md
+    summary: "Guide pour tester manuellement l'application kai-ui en utilisant le serveur MCP Chrome DevTools. Ce workflow permet à..."
+    topics: [qa, testing, mcp, chrome-devtools, manual-testing, e2e]
+    status: stale
 
-conventions: []
+conventions:
+  []
 
-adrs: []
+adrs:
+  - id: 20260219-use-adr-system
+    title: "Use Architecture Decision Records"
+    path: .adr/global/20260219-use-adr-system.md
+    summary: "We need to record the architectural decisions made in this project so that future team members can understand why dec..."
+    topics: [meta, tooling]
+    status: accepted
 
-features: []
+features:
+  []
