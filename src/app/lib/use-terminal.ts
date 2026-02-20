@@ -35,6 +35,7 @@ export function useTerminal({
   const fitAddonRef = useRef<{ fit: () => void } | null>(null);
   const resizeObserverRef = useRef<ResizeObserver | null>(null);
   const resizeDebounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const disposedRef = useRef(false);
 
   const connect = useCallback(
     (term: Terminal) => {
@@ -78,6 +79,7 @@ export function useTerminal({
           clearTimeout(stableTimer);
           stableTimer = null;
         }
+        if (disposedRef.current) return;
         if (hasEverConnectedRef.current) {
           setConnectionState("disconnected");
         }
@@ -118,6 +120,7 @@ export function useTerminal({
     const container = containerRef.current;
     if (!container) return;
 
+    disposedRef.current = false;
     let disposed = false;
 
     // Dynamic imports to avoid SSR issues
@@ -208,6 +211,7 @@ export function useTerminal({
 
     return () => {
       disposed = true;
+      disposedRef.current = true;
       if (reconnectTimerRef.current) clearTimeout(reconnectTimerRef.current);
       if (resizeDebounceRef.current) clearTimeout(resizeDebounceRef.current);
       if (resizeObserverRef.current) resizeObserverRef.current.disconnect();
@@ -216,6 +220,13 @@ export function useTerminal({
         wsRef.current.close();
       }
       if (terminalRef.current) terminalRef.current.dispose();
+      // Reset refs so Strict Mode re-mounts (and real re-mounts) start fresh
+      hasEverConnectedRef.current = false;
+      reconnectAttemptsRef.current = 0;
+      terminalRef.current = null;
+      wsRef.current = null;
+      fitAddonRef.current = null;
+      resizeObserverRef.current = null;
     };
   }, [containerRef, sessionId, worktreePath, connect]);
 
