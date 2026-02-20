@@ -1,0 +1,19 @@
+entries:
+  - step_id: "smoke-test"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T14:00:00Z"
+    completed_at: "2026-02-20T14:00:30Z"
+    duration_seconds: 30
+  - step_id: "sidebar-exploration"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T14:00:30Z"
+    completed_at: "2026-02-20T14:07:41Z"
+    duration_seconds: 431
+  - step_id: "session-creation-happy"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T14:00:30Z"
+    completed_at: "2026-02-20T14:05:50Z"
+    duration_seconds: 320

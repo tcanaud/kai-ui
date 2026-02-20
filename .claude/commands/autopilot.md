@@ -22,7 +22,7 @@ Track these counters across the loop:
 for cycle = 1 to MAX_CYCLES:
 
   ┌─ PHASE 1: Fix all known bugs ─────────────────────────┐
-  │  Check .product/backlogs/open/ for critical-bug or     │
+  │  Check .product/backlogs/promoted/ for critical-bug or  │
   │  bug items with priority critical or high.             │
   │  While bugs exist:                                     │
   │    → Run /playbook.run autohotfix                      │
@@ -43,7 +43,14 @@ for cycle = 1 to MAX_CYCLES:
   ┌─ PHASE 3: Triage into backlogs ────────────────────────┐
   │  → Run /playbook.run pm-digest                         │
   │  → Record backlogs_created                             │
-  │  → Check: any new critical/high bugs in backlogs?      │
+  └────────────────────────────────────────────────────────┘
+          │
+          ▼
+  ┌─ PHASE 4: Auto-promote bug backlogs ──────────────────┐
+  │  Scan .product/backlogs/open/ for bug or critical-bug  │
+  │  items with priority critical or high.                 │
+  │  For each: run /product.promote {BL-ID}                │
+  │  → Check: any newly promoted bugs?                     │
   │    - Yes → continue to next cycle                      │
   │    - No  → STOP (nothing left to fix)                  │
   └────────────────────────────────────────────────────────┘
@@ -53,12 +60,12 @@ for cycle = 1 to MAX_CYCLES:
 
 ### Phase 1: Hotfix Sweep
 
-1. Use the Skill tool to invoke `product.backlog` with args: `"List all open backlogs with category critical-bug or bug AND priority critical or high. Report count and IDs."`
+1. Use the Skill tool to invoke `product.backlog` with args: `"List all promoted backlogs with category critical-bug or bug AND priority critical or high. Report count and IDs."`
 2. If count > 0:
    - Use the Skill tool to invoke `playbook.run` with args: `"autohotfix"`
-   - After completion, re-check for remaining open bugs
+   - After completion, re-check for remaining promoted bugs
    - Repeat until no more qualifying bugs exist
-3. If count = 0: report "No open bugs — skipping to discovery" and proceed to Phase 2
+3. If count = 0: report "No promoted bugs — skipping to discovery" and proceed to Phase 2
 
 ### Phase 2: QA Discovery
 
@@ -82,15 +89,22 @@ for cycle = 1 to MAX_CYCLES:
 ### Phase 3: PM Triage
 
 1. Use the Skill tool to invoke `playbook.run` with args: `"pm-digest"`
-2. Check `.product/backlogs/open/` for new critical/high priority bug backlogs
-3. If new bugs found: report count and continue to next cycle
-4. If no new bugs: **STOP** — the app is clean
+2. Record `backlogs_created` count
+
+### Phase 4: Auto-Promote Bug Backlogs
+
+1. Scan `.product/backlogs/open/` for items with category `bug` or `critical-bug` AND priority `critical` or `high`
+2. For each qualifying backlog found:
+   - Use the Skill tool to invoke `product.promote` with args: `"{BL-ID}"`
+   - Record the promotion
+3. If any bugs were promoted: report count and continue to next cycle
+4. If no qualifying bugs found in open: **STOP** — the app is clean
 
 ## Stop Conditions
 
 Stop the loop when ANY of these is true:
 - `cycle > MAX_CYCLES` — report: "Max cycles reached. {hotfixes_total} bugs fixed in {cycle} cycles."
-- Phase 3 finds no new bugs — report: "App is clean. {hotfixes_total} bugs fixed in {cycle} cycles."
+- Phase 4 finds no qualifying bugs to promote — report: "App is clean. {hotfixes_total} bugs fixed in {cycle} cycles."
 - A playbook fails with `stop` error policy — report the failure and halt
 
 ## Cycle Report

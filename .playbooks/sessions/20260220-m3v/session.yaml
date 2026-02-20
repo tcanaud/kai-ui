@@ -1,0 +1,10 @@
+session_id: "20260220-m3v"
+playbook: "qa-mcp-chrome"
+feature: ""
+args:
+  target-url: "http://localhost:3000"
+status: "in_progress"
+started_at: "2026-02-20T14:00:00Z"
+completed_at: ""
+current_step: "session-creation-adversarial"
+worktree: ""
