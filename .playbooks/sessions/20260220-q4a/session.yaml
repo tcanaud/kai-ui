@@ -1,0 +1,10 @@
+session_id: "20260220-q4a"
+playbook: "qa-mcp-chrome"
+feature: "http://localhost:3000"
+args:
+  target-url: "http://localhost:3000"
+status: "completed"
+started_at: "2026-02-20T19:16:00Z"
+completed_at: "2026-02-20T19:45:00Z"
+current_step: ""
+worktree: ""
