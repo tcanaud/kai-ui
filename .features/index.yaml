@@ -12,3 +12,27 @@ features:
     stage: "ideation"
     progress: 0.0
     health: "HEALTHY"
+  - id: "002-fix-terminal-websocket-initial-connection-failure"
+    title: "Fix Terminal WebSocket Initial Connection Failure"
+    status: "active"
+    stage: "ideation"
+    progress: 0.0
+    health: "HEALTHY"
+  - id: "003-fix-mobile-responsive-layout-sheet-close-failure-and-tablet-breakpoint"
+    title: "Fix Mobile/Responsive Layout — Sheet Close Failure and Tablet Breakpoint"
+    status: "active"
+    stage: "ideation"
+    progress: 0.0
+    health: "HEALTHY"
+  - id: "004-fix-feature-name-input-validation-special-chars-whitespace-and-max-length"
+    title: "Fix Feature Name Input Validation — Special Chars, Whitespace, and Max Length"
+    status: "active"
+    stage: "ideation"
+    progress: 0.0
+    health: "HEALTHY"
+  - id: "005-fix-terminal-tab-key-focus-trap-wcag-2-1-2-keyboard-escape"
+    title: "Fix Terminal Tab Key Focus Trap — WCAG 2.1.2 Keyboard Escape"
+    status: "active"
+    stage: "ideation"
+    progress: 0.0
+    health: "HEALTHY"
