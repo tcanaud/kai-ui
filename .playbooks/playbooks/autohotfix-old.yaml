@@ -48,16 +48,6 @@ steps:
     error_policy: "stop"
     escalation_triggers: []
 
-  - id: "start-servers"
-    command: "bash"
-    args: "Ensure dev servers are running for QA testing. Kill any existing processes on ports 3000 and 3001 (lsof -ti :3000 | xargs kill -9; lsof -ti :3001 | xargs kill -9). Remove stale Next.js lock file (.next/dev/lock). Then start 'npm run dev:all' in the background. Wait up to 15 seconds and verify localhost:3000 returns HTTP 200 with curl."
-    model: "haiku"
-    autonomy: "auto"
-    preconditions: []
-    postconditions: []
-    error_policy: "stop"
-    escalation_triggers: []
-
   - id: "qa-run"
     command: "/qa.run"
     args: "Find the most recently created feature in .features/. Execute its test plan. Verify the bug is fixed and no regressions introduced."
@@ -71,13 +61,14 @@ steps:
     escalation_triggers:
       - "verdict_fail"
 
-  - id: "commit"
-    command: "bash"
-    args: "Stage all changed and untracked files related to the hotfix (source code, .features/, .product/, .qa/, .playbooks/) and create a git commit with a conventional commit message: fix(<scope>): <description>. Do NOT use git add -A. Add files selectively by path. Do NOT push."
+  - id: "pr"
+    command: "/feature.pr"
+    args: "Find the most recently created feature in .features/. Create a hotfix PR for it."
     model: "sonnet"
-    autonomy: "auto"
+    autonomy: "gate_always"
     preconditions: []
-    postconditions: []
+    postconditions:
+      - "pr_created"
     error_policy: "stop"
     escalation_triggers: []
 
@@ -88,6 +79,7 @@ steps:
     autonomy: "auto"
     preconditions:
       - "qa_verdict_pass"
+      - "pr_created"
     postconditions: []
     error_policy: "gate"
     escalation_triggers:

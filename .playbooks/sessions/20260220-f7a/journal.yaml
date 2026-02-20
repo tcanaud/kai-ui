@@ -36,3 +36,10 @@ entries:
     completed_at: "2026-02-20T12:13:41Z"
     duration_seconds: 32
     error: "Blocked — requires merged PR. PR not yet created (next step)."
+  - step_id: "pr"
+    status: "done"
+    decision: "gate"
+    started_at: "2026-02-20T12:13:41Z"
+    completed_at: "2026-02-20T12:15:00Z"
+    duration_seconds: 79
+    human_response: "User chose simple commit instead of PR. Committed as 305ab07."
