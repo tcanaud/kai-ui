@@ -178,6 +178,29 @@ export function useTerminal({
         }
       });
 
+      // Suppress mouse-move events after right-click so tmux menus
+      // stay open. The guard drops on the next mousedown or keydown,
+      // which is the natural way to interact with / dismiss the menu.
+      let rightClickGuard = false;
+
+      const dropGuard = () => { rightClickGuard = false; };
+
+      container!.addEventListener("contextmenu", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        rightClickGuard = true;
+      });
+
+      container!.addEventListener("mousedown", dropGuard, { capture: true });
+      container!.addEventListener("keydown", dropGuard, { capture: true });
+
+      container!.addEventListener("mousemove", (e: MouseEvent) => {
+        if (rightClickGuard) {
+          e.stopImmediatePropagation();
+          e.preventDefault();
+        }
+      }, { capture: true });
+
       // Clipboard: handle paste with bracketed paste mode
       container!.addEventListener("paste", (e: ClipboardEvent) => {
         e.preventDefault();
