@@ -1,5 +1,5 @@
 product_version: "1.0"
-updated: "2026-02-20T13:00:00.000Z"
+updated: "2026-02-20T00:00:00.000Z"
 
 feedbacks:
   total: 86
@@ -571,10 +571,10 @@ feedbacks:
 backlogs:
   total: 54
   by_status:
-    open: 42
+    open: 29
     in-progress: 0
     done: 4
-    promoted: 8
+    promoted: 21
     cancelled: 0
   items:
     - id: "BL-038"
@@ -585,13 +585,13 @@ backlogs:
       tags: ["security", "api", "validation"]
     - id: "BL-039"
       title: "Fix session creation double-submit race condition"
-      status: "open"
+      status: "promoted"
       category: "bug"
       priority: "medium"
       tags: []
     - id: "BL-040"
       title: "Surface playbook fetch error to user in session dialog"
-      status: "open"
+      status: "promoted"
       category: "bug"
       priority: "low"
       tags: []
@@ -603,7 +603,7 @@ backlogs:
       tags: ["regression"]
     - id: "BL-042"
       title: "Fix session dialog accessibility — descriptions, label associations, and live regions"
-      status: "open"
+      status: "promoted"
       category: "bug"
       priority: "medium"
       tags: []
@@ -627,7 +627,7 @@ backlogs:
       tags: []
     - id: "BL-046"
       title: "Fix mobile/tablet layout — hamburger overlap and intermediate breakpoint"
-      status: "open"
+      status: "promoted"
       category: "bug"
       priority: "medium"
       tags: []
@@ -753,7 +753,7 @@ backlogs:
       tags: []
     - id: "BL-024"
       title: "Fix accessibility — missing dialog titles, form labels, and aria attributes"
-      status: "open"
+      status: "promoted"
       category: "bug"
       priority: "medium"
       tags: []
@@ -777,13 +777,13 @@ backlogs:
       tags: []
     - id: "BL-028"
       title: "Fix Create Session dialog double-click-to-close — Radix Select state interference"
-      status: "open"
+      status: "promoted"
       category: "bug"
       priority: "medium"
       tags: []
     - id: "BL-029"
       title: "Fix feature name validation — reject trailing hyphens and consecutive hyphens"
-      status: "open"
+      status: "promoted"
       category: "bug"
       priority: "low"
       tags: []
@@ -795,13 +795,13 @@ backlogs:
       tags: []
     - id: "BL-031"
       title: "Fix API status codes — return 4xx for business logic errors instead of HTTP 500"
-      status: "open"
+      status: "promoted"
       category: "bug"
       priority: "low"
       tags: []
     - id: "BL-032"
       title: "Fix accessibility — SheetTitle, aria-describedby missing in mobile nav and session dialog"
-      status: "open"
+      status: "promoted"
       category: "bug"
       priority: "medium"
       tags: []
@@ -825,7 +825,7 @@ backlogs:
       tags: []
     - id: "BL-036"
       title: "Fix playbook picker — filter out template and deprecated entries from session dialog"
-      status: "open"
+      status: "promoted"
       category: "bug"
       priority: "low"
       tags: []
@@ -873,7 +873,7 @@ backlogs:
       tags: []
     - id: "BL-050"
       title: "Fix mobile nav — close sheet before opening New Session dialog (prop-threading)"
-      status: "open"
+      status: "promoted"
       category: "bug"
       priority: "medium"
       tags: ["mobile", "dialog", "sheet"]
@@ -885,7 +885,7 @@ backlogs:
       tags: ["testing", "ci", "playwright"]
     - id: "BL-052"
       title: "Fix QA test script syntax error — invalid destructuring prevents module from loading"
-      status: "open"
+      status: "promoted"
       category: "bug"
       priority: "low"
       tags: ["testing", "qa-script"]
@@ -897,11 +897,11 @@ backlogs:
       tags: ["testing", "e2e", "ci"]
     - id: "BL-054"
       title: "Fix mobile sidebar — auto-close sheet after session selection"
-      status: "open"
+      status: "promoted"
       category: "bug"
       priority: "medium"
       tags: ["mobile", "sidebar", "ux"]
 
 metrics:
   feedback_to_backlog_rate: 81.82
-  backlog_to_feature_rate: 16.33
+  backlog_to_feature_rate: 38.89
