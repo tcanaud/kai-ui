@@ -1,0 +1,49 @@
+qa_version: "1.0"
+
+feature_id: "003-fix-mobile-responsive-layout-sheet-close-failure-and-tablet-breakpoint"
+generated: "2026-02-20T00:00:00Z"
+generator: "qa.plan"
+
+checksums:
+  spec_md:
+    path: "specs/003-fix-mobile-responsive-layout-sheet-close-failure-and-tablet-breakpoint/spec.md"
+    sha256: "6961132596e4d67126e49e984f2c1f7b6f8d02515bfd383f1b18a7f68c0ba6cf"
+  agreement_yaml:
+    path: ".agreements/003-fix-mobile-responsive-layout-sheet-close-failure-and-tablet-breakpoint/agreement.yaml"
+    sha256: null
+
+scripts:
+  - filename: "test-sheet-close-x-button.sh"
+    criterion_ref: "US1.AC1"
+    criterion_text: "Given the mobile nav sheet is open, When the user clicks the X close button inside the sheet, Then the sheet closes and only the hamburger button is visible."
+    type: "acceptance"
+  - filename: "test-sheet-close-backdrop.sh"
+    criterion_ref: "US1.AC2"
+    criterion_text: "Given the mobile nav sheet is open, When the user clicks the backdrop overlay outside the sheet, Then the sheet closes and only the hamburger button is visible."
+    type: "acceptance"
+  - filename: "test-sheet-close-escape.sh"
+    criterion_ref: "US1.AC3"
+    criterion_text: "Given the mobile nav sheet is open, When the user presses the Escape key, Then the sheet closes and only the hamburger button is visible."
+    type: "acceptance"
+  - filename: "test-tablet-breakpoint-hamburger.sh"
+    criterion_ref: "US2.AC1"
+    criterion_text: "Given the viewport width is 768px, When the page loads, Then the hamburger button is visible and the desktop sidebar is hidden."
+    type: "acceptance"
+  - filename: "test-desktop-breakpoint-sidebar.sh"
+    criterion_ref: "US2.AC2"
+    criterion_text: "Given the viewport width is 1024px or wider, When the page loads, Then the desktop sidebar is visible and the hamburger button is hidden."
+    type: "acceptance"
+  - filename: "test-new-session-closes-sheet-first.sh"
+    criterion_ref: "US3.AC1"
+    criterion_text: "Given the mobile nav sheet is open, When the user taps 'New Session', Then the sheet closes before the New Session dialog opens (no simultaneous sheet + dialog)."
+    type: "acceptance"
+  - filename: "test-no-sheet-reopen-after-dialog-close.sh"
+    criterion_ref: "US3.AC2"
+    criterion_text: "Given the New Session dialog was opened from the mobile sheet, When the user cancels or closes the dialog, Then only the main content is visible — the sheet does not reappear automatically."
+    type: "acceptance"
+
+total_scripts: 7
+by_type:
+  acceptance: 7
+  interface: 0
+  edge_case: 0

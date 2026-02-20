@@ -3,7 +3,7 @@ feature_version: "1.0"
 # ── Identity ──────────────────────────────────────────
 feature_id: "005-fix-terminal-tab-key-focus-trap-wcag-2-1-2-keyboard-escape"
 title: "Fix Terminal Tab Key Focus Trap — WCAG 2.1.2 Keyboard Escape"
-status: "active"
+status: "done"
 owner: "Thibaud Canaud"
 created: "2026-02-20"
 updated: "2026-02-20"
@@ -14,9 +14,9 @@ tags: []
 
 # ── Lifecycle (computed) ──────────────────────────────
 lifecycle:
-  stage: "ideation"
+  stage: "release"
   stage_since: "2026-02-20"
-  progress: 0.0
+  progress: 1.0
   manual_override: null
 
 # ── Artifacts (computed from scan) ────────────────────

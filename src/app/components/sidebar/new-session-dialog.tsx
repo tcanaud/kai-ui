@@ -24,9 +24,11 @@ import { fetchPlaybooks, createSession } from "@/app/lib/sessions";
 
 interface NewSessionDialogProps {
   onSessionCreated: () => void;
+  /** Called before the dialog opens — used to close a parent sheet on mobile. */
+  onBeforeOpen?: () => void;
 }
 
-export function NewSessionDialog({ onSessionCreated }: NewSessionDialogProps) {
+export function NewSessionDialog({ onSessionCreated, onBeforeOpen }: NewSessionDialogProps) {
   const [open, setOpen] = useState(false);
   const [playbooks, setPlaybooks] = useState<Playbook[]>([]);
   const [selectedPlaybook, setSelectedPlaybook] = useState("");
@@ -36,6 +38,9 @@ export function NewSessionDialog({ onSessionCreated }: NewSessionDialogProps) {
   const abortControllerRef = useRef<AbortController | null>(null);
 
   function handleOpenChange(isOpen: boolean) {
+    if (isOpen) {
+      onBeforeOpen?.();
+    }
     setOpen(isOpen);
     if (!isOpen) {
       abortControllerRef.current?.abort();

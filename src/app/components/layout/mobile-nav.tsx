@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useCallback } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
@@ -19,8 +20,22 @@ export function MobileNav({
   onSessionSelect,
   onSessionCreated,
 }: MobileNavProps) {
+  const [open, setOpen] = useState(false);
+
+  const handleSessionSelect = useCallback(
+    (id: string) => {
+      setOpen(false);
+      onSessionSelect(id);
+    },
+    [onSessionSelect]
+  );
+
+  const handleCloseSheet = useCallback(() => {
+    setOpen(false);
+  }, []);
+
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <Button
           variant="ghost"
@@ -34,8 +49,9 @@ export function MobileNav({
         <SessionSidebar
           sessions={sessions}
           activeSessionId={activeSessionId}
-          onSessionSelect={onSessionSelect}
+          onSessionSelect={handleSessionSelect}
           onSessionCreated={onSessionCreated}
+          onNavigate={handleCloseSheet}
         />
       </SheetContent>
     </Sheet>

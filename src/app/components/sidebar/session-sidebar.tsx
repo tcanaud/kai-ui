@@ -10,6 +10,8 @@ interface SessionSidebarProps {
   activeSessionId: string | null;
   onSessionSelect: (id: string) => void;
   onSessionCreated: () => void;
+  /** Called when the sidebar triggers navigation that should close a parent overlay (e.g., mobile sheet). */
+  onNavigate?: () => void;
 }
 
 export function SessionSidebar({
@@ -17,6 +19,7 @@ export function SessionSidebar({
   activeSessionId,
   onSessionSelect,
   onSessionCreated,
+  onNavigate,
 }: SessionSidebarProps) {
   return (
     <div className="flex flex-col h-full bg-sidebar">
@@ -56,7 +59,7 @@ export function SessionSidebar({
 
       {/* New session button */}
       <div className="px-3 py-3 border-t border-sidebar-border">
-        <NewSessionDialog onSessionCreated={onSessionCreated} />
+        <NewSessionDialog onSessionCreated={onSessionCreated} onBeforeOpen={onNavigate} />
       </div>
     </div>
   );
