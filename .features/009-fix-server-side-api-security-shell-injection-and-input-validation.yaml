@@ -3,7 +3,7 @@ feature_version: "1.0"
 # ── Identity ──────────────────────────────────────────
 feature_id: "009-fix-server-side-api-security-shell-injection-and-input-validation"
 title: "Fix Server-Side Api Security — Shell Injection And Input Validation"
-status: "active"
+status: "done"
 owner: "Thibaud Canaud"
 created: "2026-02-20"
 updated: "2026-02-20"
@@ -14,9 +14,9 @@ tags: ["security", "api", "validation", "session-creation"]
 
 # ── Lifecycle (computed) ──────────────────────────────
 lifecycle:
-  stage: "ideation"
+  stage: "release"
   stage_since: "2026-02-20"
-  progress: 0.0
+  progress: 1.0
   manual_override: null
 
 workflow_path: "full"
