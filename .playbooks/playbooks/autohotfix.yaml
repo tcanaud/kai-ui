@@ -61,18 +61,6 @@ steps:
     escalation_triggers:
       - "verdict_fail"
 
-  - id: "resolve"
-    command: "/feature.resolve"
-    args: "Find the most recently created feature in .features/. Mark it and its linked feedbacks as done. Close the lifecycle."
-    model: "sonnet"
-    autonomy: "auto"
-    preconditions:
-      - "qa_verdict_pass"
-    postconditions: []
-    error_policy: "gate"
-    escalation_triggers:
-      - "subagent_error"
-
   - id: "pr"
     command: "/feature.pr"
     args: "Find the most recently created feature in .features/. Create a hotfix PR for it."
@@ -83,3 +71,16 @@ steps:
       - "pr_created"
     error_policy: "stop"
     escalation_triggers: []
+
+  - id: "resolve"
+    command: "/feature.resolve"
+    args: "Find the most recently created feature in .features/. Mark it and its linked feedbacks as done. Close the lifecycle."
+    model: "sonnet"
+    autonomy: "auto"
+    preconditions:
+      - "qa_verdict_pass"
+      - "pr_created"
+    postconditions: []
+    error_policy: "gate"
+    escalation_triggers:
+      - "subagent_error"
