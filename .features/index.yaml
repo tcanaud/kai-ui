@@ -54,3 +54,33 @@ features:
     stage: "ideation"
     progress: 0.0
     health: "HEALTHY"
+  - id: "009-fix-server-side-api-security-shell-injection-and-input-validation"
+    title: "Fix Server-Side Api Security — Shell Injection And Input Validation"
+    status: "active"
+    stage: "ideation"
+    progress: 0.0
+    health: "HEALTHY"
+  - id: "010-fix-mobile-nav-accessibility-hamburger-aria-label-and-sheet-title-description"
+    title: "Fix Mobile Nav Accessibility — Hamburger Aria-Label And Sheet Title/Description"
+    status: "active"
+    stage: "ideation"
+    progress: 0.0
+    health: "HEALTHY"
+  - id: "011-fix-focus-lost-after-dialog-close-on-mobile-sheet-and-dialog-unmount-race"
+    title: "Fix Focus Lost After Dialog Close On Mobile — Sheet And Dialog Unmount Race"
+    status: "active"
+    stage: "ideation"
+    progress: 0.0
+    health: "HEALTHY"
+  - id: "012-fix-panel-aria-regressions-role-button-with-interactive-content-and-aria-selected-context"
+    title: "Fix Panel Aria Regressions — Role=Button With Interactive Content And Aria-Selected Context"
+    status: "active"
+    stage: "ideation"
+    progress: 0.0
+    health: "HEALTHY"
+  - id: "013-fix-terminal-rendering-garbled-characters-xterm-screen-overflow-and-viewport-height"
+    title: "Fix Terminal Rendering — Garbled Characters, Xterm-Screen Overflow, And Viewport Height"
+    status: "active"
+    stage: "ideation"
+    progress: 0.0
+    health: "HEALTHY"

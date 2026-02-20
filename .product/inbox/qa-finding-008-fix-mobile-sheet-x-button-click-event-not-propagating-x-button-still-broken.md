@@ -1,0 +1,16 @@
+---
+title: "QA Finding: X button click on mobile sheet does not close the sheet — browser verification failed"
+category: "bug"
+source: "qa-system"
+created: "2026-02-20T00:00:00Z"
+linked_to:
+  features: ["008-fix-mobile-sheet-x-button-click-event-not-propagating"]
+  feedbacks: []
+  backlog: []
+---
+
+**Test Script**: `.qa/008-fix-mobile-sheet-x-button-click-event-not-propagating/scripts/test-x-button-closes-sheet-mobile.sh`
+**Criterion**: US1.AC1 — "Given the mobile nav sheet is open (viewport <= 768px), When the user taps/clicks the X close button, Then the sheet closes and only the hamburger button is visible."
+**Observation**: Static code analysis scripts (grep-based) all passed, confirming no obvious code-level issues (no stopPropagation, no pointer-events-none, onOpenChange is wired). However, live browser testing at 375x812 mobile viewport via Chrome DevTools MCP confirmed the X button click does NOT close the sheet. After clicking the Close button, the dialog remained open with all session items still visible. The Escape key, in contrast, correctly dismissed the sheet. This suggests the issue is at the DOM/event-handling level rather than in the static code patterns checked by the scripts.
+**Severity**: non-blocking
+**Suggestion**: The static test scripts need to be augmented with browser-level verification (e.g., Playwright or Cypress) to catch this class of runtime event propagation bug. The root cause likely involves how the SheetPrimitive.Close button's click event interacts with the SheetContent's `p-0` padding override or the overlay stacking context on touch devices.

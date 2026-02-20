@@ -1,20 +1,164 @@
 product_version: "1.0"
-updated: "2026-02-20T10:00:00.000Z"
+updated: "2026-02-20T00:00:00.000Z"
 
 feedbacks:
-  total: 39
+  total: 63
   by_status:
     new: 0
-    triaged: 31
+    triaged: 55
     excluded: 0
     resolved: 8
   by_category:
-    critical-bug: 3
-    bug: 25
-    optimization: 4
-    evolution: 7
+    critical-bug: 9
+    bug: 37
+    optimization: 7
+    evolution: 10
     new-feature: 0
   items:
+    - id: "FB-040"
+      title: "Shell command injection via unsanitized user input in exec()"
+      status: "triaged"
+      category: "critical-bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-041"
+      title: "No server-side validation of feature name format"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-042"
+      title: "No double-submit / race condition protection on session creation"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-043"
+      title: "No server-side length limit on feature name"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-044"
+      title: "Playbook fetch error silently swallowed with no user feedback"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-045"
+      title: "Hamburger menu button missing aria-label in mobile-nav"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-046"
+      title: "Sheet missing SheetTitle and SheetDescription in mobile-nav"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-047"
+      title: "Dialog missing DialogDescription in new-session-dialog"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-048"
+      title: "Label htmlFor=\"playbook\" does not match any element id"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-049"
+      title: "Focus lost to body after dialog close on mobile (sheet + dialog race condition)"
+      status: "triaged"
+      category: "critical-bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-050"
+      title: "Panels use role=\"button\" but contain interactive terminal content"
+      status: "triaged"
+      category: "critical-bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-051"
+      title: "aria-selected on SessionItem without listbox role context"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-052"
+      title: "Form error messages not announced to screen readers"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-053"
+      title: "SelectTrigger for playbook has no accessible name"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-054"
+      title: "Terminal renders garbled characters on all viewports"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-055"
+      title: "Hamburger button overlaps terminal panel header on mobile/tablet"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-056"
+      title: "Tablet viewport uses mobile layout with wasted horizontal space"
+      status: "triaged"
+      category: "evolution"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-057"
+      title: "xterm-screen overflows grid cell and blocks Playbook panel header clicks"
+      status: "triaged"
+      category: "critical-bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-058"
+      title: "xterm-viewport height 0px — terminal scrollbar broken"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-059"
+      title: "No cursor:pointer on panel role=button divs"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-060"
+      title: "No hover visual feedback on panel borders"
+      status: "triaged"
+      category: "evolution"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-061"
+      title: "CLS 0.171 — Editor panel layout shift after paint"
+      status: "triaged"
+      category: "optimization"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-062"
+      title: "377 KiB unused JavaScript — xterm loaded eagerly"
+      status: "triaged"
+      category: "optimization"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-063"
+      title: "Render-blocking CSS includes unused xterm styles"
+      status: "triaged"
+      category: "optimization"
+      priority: null
+      created: "2026-02-20"
     - id: "FB-023"
       title: "Create Session dialog requires two clicks to close — Radix Select interferes with state"
       status: "triaged"
@@ -249,16 +393,124 @@ feedbacks:
       category: "bug"
       priority: null
       created: "2026-02-20"
+    - id: "FB-025"
+      title: "Mobile sheet X close button click does not dismiss sheet — click event not propagating"
+      status: "resolved"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-028"
+      title: "Panels not keyboard accessible — tabIndex=-1, no role, no aria-label on panel wrappers"
+      status: "resolved"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-029"
+      title: "Active panel selection state not exposed to accessibility tree — no aria-selected"
+      status: "resolved"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-030"
+      title: "Focus and selection states visually indistinguishable on session buttons"
+      status: "resolved"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-031"
+      title: "New Session button focus indicator too faint — may not meet WCAG 2.4.7"
+      status: "resolved"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-033"
+      title: "Sidebar lacks nav landmark and skip-navigation link — keyboard users must tab through all sessions"
+      status: "resolved"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
 
 backlogs:
-  total: 37
+  total: 49
   by_status:
-    open: 30
+    open: 37
     in-progress: 0
     done: 4
-    promoted: 3
+    promoted: 8
     cancelled: 0
   items:
+    - id: "BL-038"
+      title: "Fix server-side API security — shell injection and input validation"
+      status: "promoted"
+      category: "critical-bug"
+      priority: "critical"
+      tags: ["security", "api", "validation"]
+    - id: "BL-039"
+      title: "Fix session creation double-submit race condition"
+      status: "open"
+      category: "bug"
+      priority: "medium"
+      tags: []
+    - id: "BL-040"
+      title: "Surface playbook fetch error to user in session dialog"
+      status: "open"
+      category: "bug"
+      priority: "low"
+      tags: []
+    - id: "BL-041"
+      title: "Fix mobile nav accessibility — hamburger aria-label and sheet title/description"
+      status: "promoted"
+      category: "critical-bug"
+      priority: "critical"
+      tags: ["regression"]
+    - id: "BL-042"
+      title: "Fix session dialog accessibility — descriptions, label associations, and live regions"
+      status: "open"
+      category: "bug"
+      priority: "medium"
+      tags: []
+    - id: "BL-043"
+      title: "Fix focus lost after dialog close on mobile — sheet and dialog unmount race"
+      status: "promoted"
+      category: "critical-bug"
+      priority: "critical"
+      tags: ["regression"]
+    - id: "BL-044"
+      title: "Fix panel ARIA regressions — role=button with interactive content and aria-selected context"
+      status: "promoted"
+      category: "critical-bug"
+      priority: "critical"
+      tags: ["regression"]
+    - id: "BL-045"
+      title: "Fix terminal rendering — garbled characters, xterm-screen overflow, and viewport height"
+      status: "promoted"
+      category: "critical-bug"
+      priority: "critical"
+      tags: []
+    - id: "BL-046"
+      title: "Fix mobile/tablet layout — hamburger overlap and intermediate breakpoint"
+      status: "open"
+      category: "bug"
+      priority: "medium"
+      tags: []
+    - id: "BL-047"
+      title: "Improve panel interactivity affordance — cursor pointer and hover states"
+      status: "open"
+      category: "evolution"
+      priority: "low"
+      tags: []
+    - id: "BL-048"
+      title: "Fix CLS — eliminate editor panel layout shift after paint"
+      status: "open"
+      category: "optimization"
+      priority: "medium"
+      tags: []
+    - id: "BL-049"
+      title: "Lazy-load xterm JS and CSS — reduce initial bundle size and render-blocking resources"
+      status: "open"
+      category: "optimization"
+      priority: "medium"
+      tags: []
     - id: "BL-002"
       title: "Code editor panel — code-server integration"
       status: "open"
@@ -483,5 +735,5 @@ backlogs:
       tags: []
 
 metrics:
-  feedback_to_backlog_rate: 105.41
-  backlog_to_feature_rate: 24.33
+  feedback_to_backlog_rate: 77.55
+  backlog_to_feature_rate: 16.33

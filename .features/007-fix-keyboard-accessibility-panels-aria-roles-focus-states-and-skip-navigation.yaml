@@ -3,7 +3,7 @@ feature_version: "1.0"
 # ── Identity ──────────────────────────────────────────
 feature_id: "007-fix-keyboard-accessibility-panels-aria-roles-focus-states-and-skip-navigation"
 title: "Fix Keyboard Accessibility — Panels ARIA Roles, Focus States, and Skip Navigation"
-status: "active"
+status: "done"
 owner: "Thibaud Canaud"
 created: "2026-02-20"
 updated: "2026-02-20"
@@ -14,9 +14,9 @@ tags: ["accessibility", "a11y", "keyboard", "aria", "wcag", "focus"]
 
 # ── Lifecycle (computed) ──────────────────────────────
 lifecycle:
-  stage: "ideation"
+  stage: "release"
   stage_since: "2026-02-20"
-  progress: 0.0
+  progress: 1.0
   manual_override: null
 
 # ── Workflow ──────────────────────────────────────────

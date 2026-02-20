@@ -1,0 +1,28 @@
+qa_version: "1.0"
+feature_id: "009-fix-server-side-api-security-shell-injection-and-input-validation"
+generated: "2026-02-20T00:00:00Z"
+generator: "qa.plan"
+
+checksums:
+  spec_md:
+    path: ""
+    sha256: null
+  agreement_yaml:
+    path: ""
+    sha256: null
+
+scripts:
+  - filename: "test-exec-replaced-with-execfile.sh"
+    criterion_ref: "SEC1"
+    criterion_text: "exec() must be replaced with execFile() to prevent shell injection"
+    type: "acceptance"
+  - filename: "test-server-validates-input.sh"
+    criterion_ref: "SEC2"
+    criterion_text: "Server must validate playbook and feature names against safe pattern before execution"
+    type: "acceptance"
+
+total_scripts: 2
+by_type:
+  acceptance: 2
+  interface: 0
+  edge_case: 0

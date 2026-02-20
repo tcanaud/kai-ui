@@ -1,0 +1,9 @@
+session_id: "20260220-h2k"
+playbook: "autohotfix"
+feature: "009-fix-server-side-api-security-shell-injection-and-input-validation"
+args: {}
+status: "in_progress"
+started_at: "2026-02-20T20:55:00Z"
+completed_at: ""
+current_step: "diagnose-fix-verify"
+worktree: ""

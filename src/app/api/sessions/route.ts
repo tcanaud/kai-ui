@@ -2,7 +2,10 @@ import { NextResponse } from "next/server";
 import { readdir, readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { existsSync } from "node:fs";
-import { exec } from "node:child_process";
+import { execFile } from "node:child_process";
+
+const SAFE_NAME_PATTERN = /^[a-z0-9][a-z0-9-]*$/;
+const MAX_NAME_LENGTH = 100;
 
 const projectRoot = process.env.KAI_PROJECT_ROOT || process.cwd();
 const sessionsDir = join(projectRoot, ".playbooks", "sessions");
@@ -73,10 +76,24 @@ export async function POST(request: Request) {
       );
     }
 
+    if (typeof playbook !== "string" || playbook.length > MAX_NAME_LENGTH || !SAFE_NAME_PATTERN.test(playbook)) {
+      return NextResponse.json(
+        { error: "Invalid playbook name. Must be lowercase alphanumeric with hyphens, max 100 chars." },
+        { status: 400 }
+      );
+    }
+    if (typeof feature !== "string" || feature.length > MAX_NAME_LENGTH || !SAFE_NAME_PATTERN.test(feature)) {
+      return NextResponse.json(
+        { error: "Invalid feature name. Must be lowercase alphanumeric with hyphens, max 100 chars." },
+        { status: 400 }
+      );
+    }
+
     const result = await new Promise<{ stdout: string; stderr: string; code: number }>(
       (resolve) => {
-        exec(
-          `npx @tcanaud/playbook start ${playbook} ${feature}`,
+        execFile(
+          "npx",
+          ["@tcanaud/playbook", "start", playbook, feature],
           { cwd: projectRoot },
           (error, stdout, stderr) => {
             resolve({

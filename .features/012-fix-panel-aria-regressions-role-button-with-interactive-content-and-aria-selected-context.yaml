@@ -1,22 +1,22 @@
 feature_version: "1.0"
 
 # ── Identity ──────────────────────────────────────────
-feature_id: "004-fix-feature-name-input-validation-special-chars-whitespace-and-max-length"
-title: "Fix Feature Name Input Validation — Special Chars, Whitespace, and Max Length"
-status: "done"
+feature_id: "012-fix-panel-aria-regressions-role-button-with-interactive-content-and-aria-selected-context"
+title: "Fix Panel Aria Regressions — Role=Button With Interactive Content And Aria-Selected Context"
+status: "active"
 owner: "Thibaud Canaud"
 created: "2026-02-20"
 updated: "2026-02-20"
 
 # ── Dependencies ──────────────────────────────────────
 depends_on: []
-tags: []
+tags: ["a11y", "panels", "regression"]
 
 # ── Lifecycle (computed) ──────────────────────────────
 lifecycle:
-  stage: "release"
+  stage: "ideation"
   stage_since: "2026-02-20"
-  progress: 1.0
+  progress: 0.0
   manual_override: null
 
 workflow_path: "full"

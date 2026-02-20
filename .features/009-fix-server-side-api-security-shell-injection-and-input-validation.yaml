@@ -1,22 +1,22 @@
 feature_version: "1.0"
 
 # ── Identity ──────────────────────────────────────────
-feature_id: "004-fix-feature-name-input-validation-special-chars-whitespace-and-max-length"
-title: "Fix Feature Name Input Validation — Special Chars, Whitespace, and Max Length"
-status: "done"
+feature_id: "009-fix-server-side-api-security-shell-injection-and-input-validation"
+title: "Fix Server-Side Api Security — Shell Injection And Input Validation"
+status: "active"
 owner: "Thibaud Canaud"
 created: "2026-02-20"
 updated: "2026-02-20"
 
 # ── Dependencies ──────────────────────────────────────
 depends_on: []
-tags: []
+tags: ["security", "api", "validation", "session-creation"]
 
 # ── Lifecycle (computed) ──────────────────────────────
 lifecycle:
-  stage: "release"
+  stage: "ideation"
   stage_since: "2026-02-20"
-  progress: 1.0
+  progress: 0.0
   manual_override: null
 
 workflow_path: "full"
