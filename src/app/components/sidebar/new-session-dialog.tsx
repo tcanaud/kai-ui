@@ -28,6 +28,18 @@ interface NewSessionDialogProps {
   onBeforeOpen?: () => void;
 }
 
+const FEATURE_NAME_PATTERN = /^[a-z0-9][a-z0-9-]*$/;
+
+function validateFeatureName(name: string): string | null {
+  const trimmed = name.trim();
+  if (!trimmed) return null; // empty is not an error, just disables submit
+  if (trimmed !== name) return "Feature name must not have leading or trailing whitespace";
+  if (!FEATURE_NAME_PATTERN.test(trimmed)) {
+    return "Only lowercase letters, numbers, and hyphens allowed (must start with a letter or number)";
+  }
+  return null;
+}
+
 export function NewSessionDialog({ onSessionCreated, onBeforeOpen }: NewSessionDialogProps) {
   const [open, setOpen] = useState(false);
   const [playbooks, setPlaybooks] = useState<Playbook[]>([]);
@@ -35,6 +47,7 @@ export function NewSessionDialog({ onSessionCreated, onBeforeOpen }: NewSessionD
   const [featureName, setFeatureName] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [validationError, setValidationError] = useState<string | null>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
 
   function handleOpenChange(isOpen: boolean) {
@@ -48,6 +61,7 @@ export function NewSessionDialog({ onSessionCreated, onBeforeOpen }: NewSessionD
       setSelectedPlaybook("");
       setFeatureName("");
       setError(null);
+      setValidationError(null);
       setLoading(false);
     }
   }
@@ -62,7 +76,8 @@ export function NewSessionDialog({ onSessionCreated, onBeforeOpen }: NewSessionD
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!selectedPlaybook || !featureName) return;
+    const trimmed = featureName.trim();
+    if (!selectedPlaybook || !trimmed || validateFeatureName(featureName)) return;
 
     setLoading(true);
     setError(null);
@@ -135,10 +150,18 @@ export function NewSessionDialog({ onSessionCreated, onBeforeOpen }: NewSessionD
             <Input
               id="feature"
               value={featureName}
-              onChange={(e) => setFeatureName(e.target.value)}
+              onChange={(e) => {
+                const val = e.target.value;
+                setFeatureName(val);
+                setValidationError(validateFeatureName(val));
+              }}
+              maxLength={100}
               placeholder="e.g., 018-new-feature"
               className="bg-secondary border-border font-mono"
             />
+            {validationError && (
+              <p className="text-xs text-destructive font-mono">{validationError}</p>
+            )}
           </div>
           {error && (
             <div className="text-sm text-destructive bg-destructive/10 border border-destructive/30 rounded p-3 font-mono">
@@ -147,7 +170,7 @@ export function NewSessionDialog({ onSessionCreated, onBeforeOpen }: NewSessionD
           )}
           <Button
             type="submit"
-            disabled={loading || !selectedPlaybook || !featureName}
+            disabled={loading || !selectedPlaybook || !featureName.trim() || !!validationError}
             className="w-full bg-neon-cyan text-background hover:bg-neon-cyan/80 font-mono"
           >
             {loading ? (

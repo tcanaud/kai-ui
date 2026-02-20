@@ -1,0 +1,9 @@
+session_id: "20260220-w8g"
+playbook: "autohotfix"
+feature: "004-fix-feature-name-input-validation-special-chars-whitespace-and-max-length"
+args: {}
+status: "in_progress"
+started_at: "2026-02-20T19:09:00Z"
+completed_at: ""
+current_step: "commit"
+worktree: ""

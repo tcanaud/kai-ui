@@ -1,0 +1,13 @@
+entries:
+  - step_id: "select-critical"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T19:09:01Z"
+    completed_at: "2026-02-20T19:09:01Z"
+    duration_seconds: 0
+  - step_id: "promote-to-feature"
+    status: "skipped"
+    decision: "auto"
+    started_at: "2026-02-20T19:09:01Z"
+    completed_at: "2026-02-20T19:09:01Z"
+    duration_seconds: 0

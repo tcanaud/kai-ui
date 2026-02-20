@@ -1,0 +1,45 @@
+qa_version: "1.0"
+
+feature_id: "004-fix-feature-name-input-validation-special-chars-whitespace-and-max-length"
+generated: "2026-02-20T00:00:00Z"
+generator: "qa.plan"
+
+checksums:
+  spec_md:
+    path: "specs/004-fix-feature-name-input-validation-special-chars-whitespace-and-max-length/spec.md"
+    sha256: "a150ea93ff81dd728a42d046a18bb09071668c3e8d9bd59effb558d02eeb2c51"
+  agreement_yaml:
+    path: ".agreements/004-fix-feature-name-input-validation-special-chars-whitespace-and-max-length/agreement.yaml"
+    sha256: null
+
+scripts:
+  - filename: "test-special-chars-inline-error.sh"
+    criterion_ref: "US1.AC1"
+    criterion_text: "Given the Feature Name input is focused, When the user types a value containing special characters (e.g. my_feature!), Then an inline error message is shown below the input explaining the allowed characters."
+    type: "acceptance"
+  - filename: "test-error-clears-on-valid-input.sh"
+    criterion_ref: "US1.AC2"
+    criterion_text: "Given an inline validation error is visible, When the user corrects the input to a valid name (e.g. my-feature), Then the inline error message disappears."
+    type: "acceptance"
+  - filename: "test-whitespace-only-submit-disabled.sh"
+    criterion_ref: "US2.AC1"
+    criterion_text: "Given the Feature Name input contains only whitespace (e.g. '   '), When the form is rendered, Then the Create Session button is disabled."
+    type: "acceptance"
+  - filename: "test-empty-input-submit-disabled.sh"
+    criterion_ref: "US2.AC2"
+    criterion_text: "Given the Feature Name input is empty, When the form is rendered, Then the Create Session button is disabled."
+    type: "acceptance"
+  - filename: "test-maxlength-100-enforced.sh"
+    criterion_ref: "US3.AC1"
+    criterion_text: "Given the Feature Name input, When the user types or pastes more than 100 characters, Then the input value is capped at 100 characters (excess characters are not accepted)."
+    type: "acceptance"
+  - filename: "test-valid-name-accepted.sh"
+    criterion_ref: "US4.AC1"
+    criterion_text: "Given a valid feature name is entered (e.g. 018-new-feature) and a playbook is selected, When the form is rendered, Then the Create Session button is enabled and no validation error is shown."
+    type: "acceptance"
+
+total_scripts: 6
+by_type:
+  acceptance: 6
+  interface: 0
+  edge_case: 0

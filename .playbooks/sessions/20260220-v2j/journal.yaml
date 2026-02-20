@@ -5,15 +5,45 @@ entries:
     started_at: "2026-02-20T18:55:01Z"
     completed_at: "2026-02-20T18:55:01Z"
     duration_seconds: 0
-  - step_id: "diagnose-fix-verify"
-    status: "done"
-    decision: "auto"
-    started_at: "2026-02-20T18:55:02Z"
-    completed_at: "2026-02-20T18:56:42Z"
-    duration_seconds: 100
   - step_id: "promote-to-feature"
     status: "skipped"
     decision: "auto"
     started_at: "2026-02-20T18:55:01Z"
     completed_at: "2026-02-20T18:55:01Z"
     duration_seconds: 0
+  - step_id: "diagnose-fix-verify"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T18:55:02Z"
+    completed_at: "2026-02-20T18:56:42Z"
+    duration_seconds: 100
+  - step_id: "qa-plan"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T18:56:43Z"
+    completed_at: "2026-02-20T19:01:06Z"
+    duration_seconds: 264
+  - step_id: "start-servers"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T19:01:07Z"
+    completed_at: "2026-02-20T19:01:07Z"
+    duration_seconds: 0
+  - step_id: "qa-run"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T19:01:08Z"
+    completed_at: "2026-02-20T19:06:42Z"
+    duration_seconds: 334
+  - step_id: "commit"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T19:06:43Z"
+    completed_at: "2026-02-20T19:07:05Z"
+    duration_seconds: 22
+  - step_id: "resolve"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T19:07:06Z"
+    completed_at: "2026-02-20T19:08:30Z"
+    duration_seconds: 84
