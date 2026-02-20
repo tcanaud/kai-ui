@@ -59,3 +59,10 @@ entries:
     started_at: "2026-02-20T00:19:34Z"
     completed_at: "2026-02-20T00:20:46Z"
     duration_seconds: 72
+  - step_id: "pr"
+    status: "done"
+    decision: "gate"
+    started_at: "2026-02-20T00:20:46Z"
+    completed_at: "2026-02-20T00:22:41Z"
+    duration_seconds: 115
+    human_response: "yes"
