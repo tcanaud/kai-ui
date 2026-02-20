@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -28,7 +29,7 @@ interface NewSessionDialogProps {
   onBeforeOpen?: () => void;
 }
 
-const FEATURE_NAME_PATTERN = /^[a-z0-9][a-z0-9-]*$/;
+const FEATURE_NAME_PATTERN = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 
 function validateFeatureName(name: string): string | null {
   const trimmed = name.trim();
@@ -51,6 +52,9 @@ export function NewSessionDialog({ onSessionCreated, onBeforeOpen }: NewSessionD
   const abortControllerRef = useRef<AbortController | null>(null);
 
   function handleOpenChange(isOpen: boolean) {
+    if (isOpen) {
+      onBeforeOpen?.();
+    }
     setOpen(isOpen);
     if (!isOpen) {
       abortControllerRef.current?.abort();
@@ -67,7 +71,10 @@ export function NewSessionDialog({ onSessionCreated, onBeforeOpen }: NewSessionD
     if (open) {
       fetchPlaybooks()
         .then(setPlaybooks)
-        .catch(() => setPlaybooks([]));
+        .catch((err) => {
+          setError(err instanceof Error ? err.message : "Failed to load playbooks");
+          setPlaybooks([]);
+        });
     }
   }, [open]);
 
@@ -111,11 +118,21 @@ export function NewSessionDialog({ onSessionCreated, onBeforeOpen }: NewSessionD
           New Session
         </Button>
       </DialogTrigger>
-      <DialogContent className="bg-card border-border">
+      <DialogContent
+        className="bg-card border-border"
+        onPointerDownOutside={(e) => {
+          if (e.target instanceof Element && e.target.closest("[data-radix-select-content]")) {
+            e.preventDefault();
+          }
+        }}
+      >
         <DialogHeader>
           <DialogTitle className="font-mono text-neon-cyan text-glow-cyan">
             Create Session
           </DialogTitle>
+          <DialogDescription className="sr-only">
+            Select a playbook and provide a feature name to start a new session.
+          </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
@@ -123,7 +140,7 @@ export function NewSessionDialog({ onSessionCreated, onBeforeOpen }: NewSessionD
               Playbook
             </Label>
             <Select value={selectedPlaybook} onValueChange={setSelectedPlaybook}>
-              <SelectTrigger className="bg-secondary border-border">
+              <SelectTrigger id="playbook" className="bg-secondary border-border">
                 <SelectValue placeholder="Select a playbook..." />
               </SelectTrigger>
               <SelectContent className="bg-card border-border">
@@ -157,11 +174,11 @@ export function NewSessionDialog({ onSessionCreated, onBeforeOpen }: NewSessionD
               className="bg-secondary border-border font-mono"
             />
             {validationError && (
-              <p className="text-xs text-destructive font-mono">{validationError}</p>
+              <p className="text-xs text-destructive font-mono" aria-live="polite">{validationError}</p>
             )}
           </div>
           {error && (
-            <div className="text-sm text-destructive bg-destructive/10 border border-destructive/30 rounded p-3 font-mono">
+            <div className="text-sm text-destructive bg-destructive/10 border border-destructive/30 rounded p-3 font-mono" aria-live="assertive" role="alert">
               {error}
             </div>
           )}

@@ -162,3 +162,9 @@ features:
     stage: "ideation"
     progress: 0.0
     health: "HEALTHY"
+  - id: "027-fix-mobile-session-interaction-touch-off-by-one-and-viewport-selection-reset"
+    title: "Fix Mobile Session Interaction — Touch Off-By-One and Viewport Selection Reset"
+    status: "active"
+    stage: "ideation"
+    progress: 0.0
+    health: "HEALTHY"

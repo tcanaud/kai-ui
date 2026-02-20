@@ -1,20 +1,110 @@
 product_version: "1.0"
-updated: "2026-02-20T00:00:00.000Z"
+updated: "2026-02-20T12:00:00.000Z"
 
 feedbacks:
-  total: 86
+  total: 101
   by_status:
     new: 0
-    triaged: 66
-    excluded: 12
+    triaged: 73
+    excluded: 20
     resolved: 8
   by_category:
-    critical-bug: 9
-    bug: 51
-    optimization: 11
+    critical-bug: 10
+    bug: 56
+    optimization: 20
     evolution: 15
     new-feature: 0
   items:
+    - id: "FB-087"
+      title: "Mobile touch target off-by-one: clicking session selects item above"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-088"
+      title: "Selection state not preserved when switching desktop to mobile viewport"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-089"
+      title: "No visual distinction between 'aborted' and 'completed' session status in sidebar"
+      status: "triaged"
+      category: "optimization"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-090"
+      title: "Dialog close button requires two clicks — first click resets form but dialog stays open"
+      status: "excluded"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-091"
+      title: "No way to deselect a playbook once selected in session creation dialog"
+      status: "triaged"
+      category: "optimization"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-092"
+      title: "No feedback when feature name input is truncated at maxLength=100"
+      status: "triaged"
+      category: "optimization"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-093"
+      title: "Generic validation error for all invalid feature name patterns — no specific guidance"
+      status: "triaged"
+      category: "optimization"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-094"
+      title: "Terminal panel missing role=button and tabIndex=0 — not keyboard accessible"
+      status: "excluded"
+      category: "critical-bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-095"
+      title: "Double-click on panel deselects it — click handler fires twice causing toggle off"
+      status: "excluded"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-096"
+      title: "No hover visual feedback on panel cards — cursor:pointer but no hover state"
+      status: "excluded"
+      category: "optimization"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-097"
+      title: "Bottom row panels missing explicit grid span classes — relies on auto-placement"
+      status: "triaged"
+      category: "optimization"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-098"
+      title: "Weak focus indicators — outline:none with low-opacity box-shadow, may fail WCAG 2.4.7"
+      status: "excluded"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-099"
+      title: "Too many tab stops in session list — should use roving tabindex pattern"
+      status: "excluded"
+      category: "optimization"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-100"
+      title: "LCP is 3.9s (poor) — terminal xterm content delayed by WebSocket/PTY startup"
+      status: "excluded"
+      category: "optimization"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-101"
+      title: "Render-blocking xterm CSS — could be lazy-loaded if terminal not immediately visible"
+      status: "excluded"
+      category: "optimization"
+      priority: null
+      created: "2026-02-20"
     - id: "FB-064"
       title: "Sheet X close button fails on touch devices — 16x16px below WCAG 44x44px minimum"
       status: "excluded"
@@ -569,12 +659,12 @@ feedbacks:
       created: "2026-02-20"
 
 backlogs:
-  total: 54
+  total: 59
   by_status:
-    open: 29
+    open: 33
     in-progress: 0
     done: 4
-    promoted: 21
+    promoted: 22
     cancelled: 0
   items:
     - id: "BL-038"
@@ -902,6 +992,37 @@ backlogs:
       priority: "medium"
       tags: ["mobile", "sidebar", "ux"]
 
+    - id: "BL-055"
+      title: "Fix mobile session interaction — touch off-by-one and viewport selection reset"
+      status: "promoted"
+      category: "bug"
+      priority: "medium"
+      tags: []
+    - id: "BL-056"
+      title: "Add visual distinction for aborted vs completed session status in sidebar"
+      status: "open"
+      category: "optimization"
+      priority: "low"
+      tags: []
+    - id: "BL-057"
+      title: "Allow playbook deselection in session creation dialog"
+      status: "open"
+      category: "optimization"
+      priority: "low"
+      tags: []
+    - id: "BL-058"
+      title: "Improve feature name input UX — truncation feedback and specific validation messages"
+      status: "open"
+      category: "optimization"
+      priority: "low"
+      tags: []
+    - id: "BL-059"
+      title: "Add explicit grid span classes to bottom row panels"
+      status: "open"
+      category: "optimization"
+      priority: "low"
+      tags: []
+
 metrics:
-  feedback_to_backlog_rate: 81.82
-  backlog_to_feature_rate: 38.89
+  feedback_to_backlog_rate: 58.42
+  backlog_to_feature_rate: 40.00

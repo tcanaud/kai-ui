@@ -1,0 +1,9 @@
+session_id: "20260220-vms"
+playbook: "autohotfix"
+feature: ""
+args: {}
+status: "in_progress"
+started_at: "2026-02-20T12:00:00Z"
+completed_at: ""
+current_step: ""
+worktree: ""

@@ -1,0 +1,20 @@
+entries:
+  - step_id: "select-critical"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T12:00:00Z"
+    completed_at: "2026-02-20T12:01:00Z"
+    duration_seconds: 36
+  - step_id: "promote-to-feature"
+    status: "skipped"
+    decision: "auto"
+    started_at: "2026-02-20T12:01:00Z"
+    completed_at: "2026-02-20T12:01:00Z"
+    duration_seconds: 0
+  - step_id: "diagnose-fix-verify"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T12:01:00Z"
+    completed_at: "2026-02-20T12:02:00Z"
+    duration_seconds: 68
+    error: "All 3 bugs already fixed in codebase — no changes needed"

@@ -1,0 +1,61 @@
+entries:
+  - step_id: "smoke-test"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T12:10:00Z"
+    completed_at: "2026-02-20T12:11:00Z"
+    duration_seconds: 27
+  - step_id: "sidebar-exploration"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T12:11:00Z"
+    completed_at: "2026-02-20T12:15:00Z"
+    duration_seconds: 226
+  - step_id: "session-creation-happy"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T12:15:00Z"
+    completed_at: "2026-02-20T12:17:00Z"
+    duration_seconds: 85
+  - step_id: "session-creation-adversarial"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T12:17:00Z"
+    completed_at: "2026-02-20T12:20:00Z"
+    duration_seconds: 192
+  - step_id: "panel-interaction"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T12:20:00Z"
+    completed_at: "2026-02-20T12:25:00Z"
+    duration_seconds: 265
+  - step_id: "responsive-test"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T12:25:00Z"
+    completed_at: "2026-02-20T12:27:00Z"
+    duration_seconds: 117
+  - step_id: "keyboard-a11y"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T12:27:00Z"
+    completed_at: "2026-02-20T12:30:00Z"
+    duration_seconds: 183
+  - step_id: "console-network-audit"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T12:30:00Z"
+    completed_at: "2026-02-20T12:31:00Z"
+    duration_seconds: 71
+  - step_id: "performance-audit"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T12:31:00Z"
+    completed_at: "2026-02-20T12:32:00Z"
+    duration_seconds: 55
+  - step_id: "feedback-intake"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T12:32:00Z"
+    completed_at: "2026-02-20T12:34:00Z"
+    duration_seconds: 94

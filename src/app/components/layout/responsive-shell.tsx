@@ -40,7 +40,7 @@ export function ResponsiveShell({
       />
 
       {/* Main content */}
-      <main id="main-content" className="flex-1 overflow-auto">{children}</main>
+      <main id="main-content" className="flex-1 overflow-auto pt-14 lg:pt-0">{children}</main>
     </div>
   );
 }

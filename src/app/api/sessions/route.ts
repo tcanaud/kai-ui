@@ -4,7 +4,7 @@ import { join } from "node:path";
 import { existsSync } from "node:fs";
 import { execFile } from "node:child_process";
 
-const SAFE_NAME_PATTERN = /^[a-z0-9][a-z0-9-]*$/;
+const SAFE_NAME_PATTERN = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 const MAX_NAME_LENGTH = 100;
 
 const projectRoot = process.env.KAI_PROJECT_ROOT || process.cwd();
@@ -107,13 +107,14 @@ export async function POST(request: Request) {
     );
 
     if (result.code !== 0) {
+      const details = result.stderr || result.stdout;
       return NextResponse.json(
         {
           error: "Session creation failed",
-          details: result.stderr || result.stdout,
+          details,
           exitCode: result.code,
         },
-        { status: 500 }
+        { status: 422 }
       );
     }
 

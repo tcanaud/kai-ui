@@ -28,9 +28,11 @@ export async function GET() {
 
     for (const entry of entries) {
       if (!entry.endsWith(".yaml") && !entry.endsWith(".yml")) continue;
+      if (entry.startsWith("_")) continue;
+      const name = entry.replace(/\.ya?ml$/, "");
+      if (name.endsWith(".tpl") || name.endsWith("-old")) continue;
       const content = await readFile(join(playbooksDir, entry), "utf-8");
       const data = extractFrontmatter(content);
-      const name = entry.replace(/\.ya?ml$/, "");
 
       playbooks.push({
         name,
