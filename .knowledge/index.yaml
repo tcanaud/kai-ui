@@ -1,5 +1,5 @@
 version: "1.0"
-generated: "2026-02-19T23:20:00.717Z"
+generated: "2026-02-20T00:25:17.458Z"
 
 guides:
   - id: commit-and-push
@@ -7,6 +7,12 @@ guides:
     path: .knowledge/guides/commit-and-push.md
     summary: "The kai repo is a git-submodule monorepo: the parent repo tracks pointers to independent package repos under `package..."
     topics: [commit, push, git, submodule, tag, publish, version bump, ci/cd, workflow]
+    status: stale
+  - id: devkit
+    title: "Devkit — dev server setup, environment, ports, and local workflow"
+    path: .knowledge/guides/devkit.md
+    summary: "kai-ui is a Next.js 16 app with a sidecar WebSocket server for terminal functionality. Local development involves two..."
+    topics: [devkit, dev-server, environment, ports, scripts, local-development]
     status: stale
   - id: project-philosophy
     title: "kai philosophy — vision, dogmas, and design principles"
@@ -33,4 +39,8 @@ adrs:
     status: accepted
 
 features:
-  []
+  - id: 001-terminal-panel-xterm-js-tmux-integration
+    title: "Terminal Panel — Xterm.js + Tmux Integration"
+    path: .features/001-terminal-panel-xterm-js-tmux-integration.yaml
+    stage: ideation
+    topics: [v1.1, panel, terminal]
