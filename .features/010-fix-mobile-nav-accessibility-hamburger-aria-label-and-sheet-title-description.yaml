@@ -3,7 +3,7 @@ feature_version: "1.0"
 # ── Identity ──────────────────────────────────────────
 feature_id: "010-fix-mobile-nav-accessibility-hamburger-aria-label-and-sheet-title-description"
 title: "Fix Mobile Nav Accessibility — Hamburger Aria-Label And Sheet Title/Description"
-status: "active"
+status: "done"
 owner: "Thibaud Canaud"
 created: "2026-02-20"
 updated: "2026-02-20"
@@ -14,9 +14,9 @@ tags: ["a11y", "mobile", "regression"]
 
 # ── Lifecycle (computed) ──────────────────────────────
 lifecycle:
-  stage: "ideation"
+  stage: "release"
   stage_since: "2026-02-20"
-  progress: 0.0
+  progress: 1.0
   manual_override: null
 
 workflow_path: "full"

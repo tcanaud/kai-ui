@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTitle, SheetDescription, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import type { Session } from "@/app/lib/types";
@@ -40,12 +40,15 @@ export function MobileNav({
         <Button
           variant="ghost"
           size="icon"
+          aria-label="Open navigation menu"
           className="lg:hidden fixed top-3 left-3 z-50 bg-card/80 backdrop-blur border border-border glow-cyan"
         >
           <Menu className="h-5 w-5 text-neon-cyan" />
         </Button>
       </SheetTrigger>
       <SheetContent side="left" className="w-72 p-0 bg-sidebar border-sidebar-border">
+        <SheetTitle className="sr-only">Navigation</SheetTitle>
+        <SheetDescription className="sr-only">Session navigation sidebar</SheetDescription>
         <SessionSidebar
           sessions={sessions}
           activeSessionId={activeSessionId}

@@ -38,15 +38,17 @@ export function PanelLayout({ sessionId, worktreePath = "", isMobile = false }: 
     [handlePanelClick]
   );
 
-  const panelProps = (panelId: string, extraClassName?: string) => ({
-    role: "button" as const,
-    tabIndex: 0,
-    "aria-label": `${PANEL_LABELS[panelId]} panel`,
-    "aria-pressed": activePanel === panelId,
-    onClick: () => handlePanelClick(panelId),
-    onKeyDown: (e: KeyboardEvent<HTMLDivElement>) => handlePanelKeyDown(panelId, e),
-    className: `${extraClassName ?? ""} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-1 focus-visible:ring-offset-background rounded-md`.trim(),
-  });
+  const panelProps = (panelId: string, extraClassName?: string) => {
+    const isTerminal = panelId === "terminal";
+    return {
+      ...(isTerminal ? {} : { role: "button" as const, tabIndex: 0 }),
+      "aria-label": `${PANEL_LABELS[panelId]} panel`,
+      "aria-pressed": activePanel === panelId,
+      onClick: () => handlePanelClick(panelId),
+      onKeyDown: isTerminal ? undefined : (e: KeyboardEvent<HTMLDivElement>) => handlePanelKeyDown(panelId, e),
+      className: `${extraClassName ?? ""} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-1 focus-visible:ring-offset-background rounded-md cursor-pointer`.trim(),
+    };
+  };
 
   if (isMobile) {
     return (
