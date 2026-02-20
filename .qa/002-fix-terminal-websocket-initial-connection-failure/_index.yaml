@@ -1,0 +1,85 @@
+qa_version: "1.0"
+
+feature_id: "002-fix-terminal-websocket-initial-connection-failure"
+generated: "2026-02-20T00:00:00Z"
+generator: "qa.plan"
+
+checksums:
+  spec_md:
+    path: "specs/002-fix-terminal-websocket-initial-connection-failure/spec.md"
+    sha256: "0e08b40b003a4eb7bfccfb2b63e342f698314d48c1d96bcdbfb408d7645cfcf7"
+  agreement_yaml:
+    path: ".agreements/002-fix-terminal-websocket-initial-connection-failure/agreement.yaml"
+    sha256: "d575d6df353b8499a1833778f4c2dbb2adc423536d33cf199b580ea9ad1b2740"
+
+scripts:
+  - filename: "test-us1-ac1-shell-prompt-within-3s.sh"
+    criterion_ref: "US1.AC1"
+    criterion_text: "Given the sidecar server is running and healthy, When a user navigates to the application URL in their browser, Then the terminal panel displays a live shell prompt within 3 seconds of the page becoming interactive."
+    type: "acceptance"
+
+  - filename: "test-us1-ac2-no-disconnected-overlay-on-initial-load.sh"
+    criterion_ref: "US1.AC2"
+    criterion_text: "Given the sidecar server is running and healthy, When a user navigates to the application URL, Then the 'Disconnected. Reconnecting...' overlay is never displayed during the initial connection sequence."
+    type: "acceptance"
+
+  - filename: "test-us1-ac3-first-websocket-attempt-succeeds.sh"
+    criterion_ref: "US1.AC3"
+    criterion_text: "Given the sidecar server is running and a session is pre-selected on load, When the terminal panel mounts, Then the WebSocket connection is established successfully on the first attempt without falling into the reconnection loop."
+    type: "acceptance"
+
+  - filename: "test-us2-ac1-auto-reconnect-after-sidecar-restart.sh"
+    criterion_ref: "US2.AC1"
+    criterion_text: "Given the terminal is connected and the sidecar is restarted, When the sidecar becomes available again, Then the terminal reconnects and displays a live shell prompt without requiring a page reload."
+    type: "acceptance"
+
+  - filename: "test-us2-ac2-reconnecting-message-not-disconnected.sh"
+    criterion_ref: "US2.AC2"
+    criterion_text: "Given a reconnection attempt is in progress, When the sidecar is not yet available, Then the 'Connection lost. Retrying...' message is shown — not 'Disconnected. Reconnecting...' — to clearly distinguish from an initial connection failure."
+    type: "acceptance"
+
+  - filename: "test-us3-ac1-connecting-message-on-initial-phase.sh"
+    criterion_ref: "US3.AC1"
+    criterion_text: "Given the terminal is making its initial connection, When the connection has not yet succeeded, Then 'Connecting...' is shown."
+    type: "acceptance"
+
+  - filename: "test-us3-ac2-connection-lost-retrying-on-drop.sh"
+    criterion_ref: "US3.AC2"
+    criterion_text: "Given the terminal was connected and the connection dropped, When a reconnection attempt is in progress, Then 'Connection lost. Retrying...' is shown."
+    type: "acceptance"
+
+  - filename: "test-us3-ac3-connection-failed-with-retry-button.sh"
+    criterion_ref: "US3.AC3"
+    criterion_text: "Given all reconnection attempts have failed, When the retry limit is reached, Then 'Connection failed.' is shown with a Retry button."
+    type: "acceptance"
+
+  - filename: "test-edge-sidecar-unavailable-on-open.sh"
+    criterion_ref: "EC1"
+    criterion_text: "What happens when the sidecar is not running at all when the app is opened? The terminal should show 'Connection failed.' with a Retry button after exhausting retries, not an indefinite reconnecting loop."
+    type: "edge_case"
+
+  - filename: "test-edge-unresolved-session-id-no-premature-connect.sh"
+    criterion_ref: "EC2"
+    criterion_text: "What happens when a session ID is not yet resolved at the time the terminal panel mounts? The terminal must wait until a valid session ID is available before attempting any connection."
+    type: "edge_case"
+
+  - filename: "test-edge-empty-session-list-no-connection-attempt.sh"
+    criterion_ref: "EC3"
+    criterion_text: "What happens if the session list is empty on first load? No terminal connection should be attempted and no error state should be shown — only the empty state prompting the user to create a session."
+    type: "edge_case"
+
+  - filename: "test-if1-use-terminal-connection-state-enum.sh"
+    criterion_ref: "IF1"
+    criterion_text: "useTerminal hook — ConnectionState enum: idle | connecting | connected | disconnected | reconnecting | error"
+    type: "interface"
+
+  - filename: "test-if2-connection-overlay-messages-per-state.sh"
+    criterion_ref: "IF2"
+    criterion_text: "ConnectionOverlay — renders correct message for each ConnectionState value"
+    type: "interface"
+
+total_scripts: 13
+by_type:
+  acceptance: 8
+  interface: 2
+  edge_case: 3

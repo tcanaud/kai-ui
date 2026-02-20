@@ -1,0 +1,10 @@
+session_id: "20260220-rie"
+playbook: "backlog-to-pr"
+feature: "002-fix-terminal-websocket-initial-connection-failure"
+args:
+  backlog: "BL-019"
+status: "aborted"
+started_at: "2026-02-20T18:00:00Z"
+completed_at: "2026-02-20T18:30:30Z"
+current_step: ""
+worktree: ""

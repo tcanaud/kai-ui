@@ -1,0 +1,91 @@
+name: "hotfix2"
+description: "Lean hotfix — explore, diagnose, fix, and verify in minimal steps. No spec/plan/agreement ceremony."
+version: "1.0"
+
+args:
+  - name: "backlog"
+    description: "Backlog ID to hotfix (e.g., BL-019)"
+    required: true
+  - name: "issue"
+    description: "Short description of the bug to fix (free text)"
+    required: true
+
+steps:
+  - id: "select-critical"
+    command: "/product.backlog"
+    args: "{{backlog}} — If a backlog ID is provided, inspect it and confirm it is a critical-bug. If no ID is provided, list all open backlogs filtered to critical-bug category with critical or high priority, and select the most urgent one. Report the selected backlog ID, title, and linked feedbacks."
+    model: "haiku"
+    autonomy: "auto"
+    preconditions: []
+    postconditions: []
+    error_policy: "stop"
+    escalation_triggers: []
+
+  - id: "promote-to-feature"
+    command: "/product.promote"
+    args: "{{backlog}} — Promote this critical backlog to a feature. This creates the feature YAML and updates traceability links."
+    model: "sonnet"
+    autonomy: "auto"
+    preconditions: []
+    postconditions: []
+    error_policy: "stop"
+    escalation_triggers:
+      - "subagent_error"
+
+  - id: "diagnose-fix-verify"
+    command: "/speckit.implement"
+    args: "HOTFIX MODE — Do NOT read tasks.md. Instead, follow this protocol:\n\n## 1. Explore (max 5 min)\nInvestigate the issue: {{issue}}\n- Read error logs, relevant source files, and config\n- Reproduce the bug if possible (run the app, curl endpoints, check browser)\n- Identify root cause with evidence\n\n## 2. Fix\n- Apply the minimal, targeted fix\n- Touch only what's broken — no refactoring, no cleanup\n- If multiple files need changes, change them all\n\n## 3. Verify\n- Confirm the fix works (run the app, execute the failing scenario, check output)\n- Run lint/tests if they exist: npm test && npm run lint\n- Report: root cause, what changed, verification result\n\nIf the fix doesn't work on first attempt, iterate (max 3 attempts) before escalating."
+    model: "opus"
+    autonomy: "auto"
+    preconditions: []
+    postconditions: []
+    error_policy: "gate"
+    escalation_triggers:
+      - "subagent_error"
+
+  - id: "qa-plan"
+    command: "/qa.plan"
+    args: "Generate a focused test plan for the hotfix — regression test for the bug, smoke test for surrounding functionality. Keep it minimal and targeted."
+    model: "sonnet"
+    autonomy: "auto"
+    preconditions: []
+    postconditions:
+      - "qa_plan_exists"
+    error_policy: "stop"
+    escalation_triggers: []
+
+  - id: "qa-run"
+    command: "/qa.run"
+    args: "Execute the hotfix test plan. Verify the bug is fixed and no regressions introduced."
+    model: "opus"
+    autonomy: "auto"
+    preconditions:
+      - "qa_plan_exists"
+    postconditions:
+      - "qa_verdict_pass"
+    error_policy: "gate"
+    escalation_triggers:
+      - "verdict_fail"
+
+  - id: "resolve"
+    command: "/feature.resolve"
+    args: "{{backlog}} — Mark the feature and linked feedbacks as done. Close the lifecycle."
+    model: "sonnet"
+    autonomy: "auto"
+    preconditions:
+      - "qa_verdict_pass"
+    postconditions: []
+    error_policy: "gate"
+    escalation_triggers:
+      - "subagent_error"
+
+  - id: "pr"
+    command: "/feature.pr"
+    args: "Hotfix PR for: {{issue}}"
+    model: "sonnet"
+    autonomy: "gate_always"
+    preconditions: []
+    postconditions:
+      - "pr_created"
+    error_policy: "stop"
+    escalation_triggers: []

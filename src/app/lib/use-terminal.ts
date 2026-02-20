@@ -31,22 +31,34 @@ export function useTerminal({
   const wsRef = useRef<WebSocket | null>(null);
   const reconnectAttemptsRef = useRef(0);
   const reconnectTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const hasEverConnectedRef = useRef(false);
   const fitAddonRef = useRef<{ fit: () => void } | null>(null);
   const resizeObserverRef = useRef<ResizeObserver | null>(null);
   const resizeDebounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const connect = useCallback(
     (term: Terminal) => {
-      const state = reconnectAttemptsRef.current > 0 ? "reconnecting" : "connecting";
+      const state = hasEverConnectedRef.current && reconnectAttemptsRef.current > 0 ? "reconnecting" : "connecting";
       setConnectionState(state);
 
       const wsUrl = `ws://localhost:3001/terminal/${sessionId}?worktreePath=${encodeURIComponent(worktreePath)}`;
       const ws = new WebSocket(wsUrl);
       wsRef.current = ws;
 
+      let connectionStable = false;
+      let stableTimer: ReturnType<typeof setTimeout> | null = null;
+
       ws.onopen = () => {
+        hasEverConnectedRef.current = true;
         setConnectionState("connected");
-        reconnectAttemptsRef.current = 0;
+
+        // Mark connection as stable after 2 seconds of staying open.
+        // This prevents resetting the reconnect counter when the server
+        // accepts then immediately closes (e.g., PTY spawn failure).
+        stableTimer = setTimeout(() => {
+          connectionStable = true;
+          reconnectAttemptsRef.current = 0;
+        }, 2000);
 
         // Send initial size
         if (fitAddonRef.current) {
@@ -62,7 +74,13 @@ export function useTerminal({
       };
 
       ws.onclose = () => {
-        setConnectionState("disconnected");
+        if (stableTimer) {
+          clearTimeout(stableTimer);
+          stableTimer = null;
+        }
+        if (hasEverConnectedRef.current) {
+          setConnectionState("disconnected");
+        }
         attemptReconnect(term);
       };
 
@@ -91,6 +109,7 @@ export function useTerminal({
   const retry = useCallback(() => {
     if (terminalRef.current) {
       reconnectAttemptsRef.current = 0;
+      hasEverConnectedRef.current = false;
       connect(terminalRef.current);
     }
   }, [connect]);

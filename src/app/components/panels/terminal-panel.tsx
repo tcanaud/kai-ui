@@ -31,7 +31,7 @@ function ConnectionOverlay({
       message = "Connection lost. Retrying...";
       break;
     case "disconnected":
-      message = "Disconnected. Reconnecting...";
+      message = "Connection lost. Retrying...";
       break;
     case "error":
       message = "Connection failed.";
