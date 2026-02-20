@@ -147,6 +147,7 @@ export function useTerminal({
         fontSize: 14,
         theme: terminalTheme,
         allowProposedApi: true,
+        rightClickSelectsWord: false,
       });
 
       term.loadAddon(fitAddon);
