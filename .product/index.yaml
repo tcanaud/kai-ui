@@ -1,36 +1,120 @@
 product_version: "1.0"
-updated: "2026-02-20T00:01:00.000Z"
+updated: "2026-02-20T10:00:00.000Z"
 
 feedbacks:
-  total: 22
+  total: 39
   by_status:
     new: 0
-    triaged: 21
+    triaged: 31
     excluded: 0
-    resolved: 1
+    resolved: 8
   by_category:
     critical-bug: 3
-    bug: 13
-    optimization: 2
-    evolution: 4
+    bug: 25
+    optimization: 4
+    evolution: 7
     new-feature: 0
   items:
-    - id: "FB-001"
-      title: "Terminal panel shows 'Disconnected. Reconnecting...' on initial page load"
-      status: "resolved"
-      category: "critical-bug"
+    - id: "FB-023"
+      title: "Create Session dialog requires two clicks to close — Radix Select interferes with state"
+      status: "triaged"
+      category: "bug"
       priority: null
       created: "2026-02-20"
-    - id: "FB-002"
-      title: "Mobile sidebar sheet cannot be closed — intermittent critical blocker"
+    - id: "FB-024"
+      title: "Feature name validation accepts trailing hyphens and consecutive hyphens"
       status: "triaged"
-      category: "critical-bug"
+      category: "bug"
       priority: null
       created: "2026-02-20"
-    - id: "FB-003"
-      title: "Terminal textarea traps Tab focus — keyboard-only users cannot escape"
+    - id: "FB-025"
+      title: "Mobile sheet X close button click does not dismiss sheet — click event not propagating"
       status: "triaged"
-      category: "critical-bug"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-026"
+      title: "Server returns HTTP 500 for business logic errors — should be 400 or 422"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-027"
+      title: "Missing SheetTitle in mobile-nav SheetContent — screen reader console error"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-028"
+      title: "Panels not keyboard accessible — tabIndex=-1, no role, no aria-label on panel wrappers"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-029"
+      title: "Active panel selection state not exposed to accessibility tree — no aria-selected"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-030"
+      title: "Focus and selection states visually indistinguishable on session buttons"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-031"
+      title: "New Session button focus indicator too faint — may not meet WCAG 2.4.7"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-032"
+      title: "Create Session dialog missing aria-describedby — console warning on every open"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-033"
+      title: "Sidebar lacks nav landmark and skip-navigation link — keyboard users must tab through all sessions"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-034"
+      title: "No visual feedback on 'kai ui' header click — unclear if it triggers any action"
+      status: "triaged"
+      category: "evolution"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-035"
+      title: "Toggling off all panels leaves zero-selection state with no empty-state message"
+      status: "triaged"
+      category: "evolution"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-036"
+      title: "Terminal panel height pushes other panels below fold on mobile with no scroll hint"
+      status: "triaged"
+      category: "optimization"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-037"
+      title: "Blank area below panels on desktop — grid rows don't stretch to fill viewport height"
+      status: "triaged"
+      category: "optimization"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-038"
+      title: "Playbook picker includes 'autohotfix-old' and 'playbook.tpl' template entries visible to users"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-039"
+      title: "Terminal shows stale session output on load — no clear-on-connect behavior"
+      status: "triaged"
+      category: "evolution"
       priority: null
       created: "2026-02-20"
     - id: "FB-004"
@@ -45,24 +129,6 @@ feedbacks:
       category: "bug"
       priority: null
       created: "2026-02-20"
-    - id: "FB-006"
-      title: "Special characters accepted in feature name field — breaks git/filesystem paths"
-      status: "triaged"
-      category: "bug"
-      priority: null
-      created: "2026-02-20"
-    - id: "FB-007"
-      title: "Whitespace-only feature name passes validation — missing .trim() check"
-      status: "triaged"
-      category: "bug"
-      priority: null
-      created: "2026-02-20"
-    - id: "FB-008"
-      title: "Tablet 768px shows full desktop sidebar — panels cramped to ~160px each"
-      status: "triaged"
-      category: "bug"
-      priority: null
-      created: "2026-02-20"
     - id: "FB-009"
       title: "Missing DialogTitle in 4 Radix DialogContent components — screen reader a11y"
       status: "triaged"
@@ -71,12 +137,6 @@ feedbacks:
       created: "2026-02-20"
     - id: "FB-010"
       title: "Hamburger button has no aria-label — screen readers announce bare 'button'"
-      status: "triaged"
-      category: "bug"
-      priority: null
-      created: "2026-02-20"
-    - id: "FB-011"
-      title: "No max length on feature name input — allows arbitrarily long strings"
       status: "triaged"
       category: "bug"
       priority: null
@@ -95,12 +155,6 @@ feedbacks:
       created: "2026-02-20"
     - id: "FB-014"
       title: "Form fields missing id/name attributes and label for mismatch in Create Session dialog"
-      status: "triaged"
-      category: "bug"
-      priority: null
-      created: "2026-02-20"
-    - id: "FB-015"
-      title: "New Session inside mobile sheet creates nested dialogs — confusing on small screens"
       status: "triaged"
       category: "bug"
       priority: null
@@ -147,179 +201,287 @@ feedbacks:
       category: "bug"
       priority: null
       created: "2026-02-20"
+    - id: "FB-001"
+      title: "Terminal panel shows 'Disconnected. Reconnecting...' on initial page load"
+      status: "resolved"
+      category: "critical-bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-002"
+      title: "Mobile sidebar sheet cannot be closed — intermittent critical blocker"
+      status: "resolved"
+      category: "critical-bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-003"
+      title: "Terminal textarea traps Tab focus — keyboard-only users cannot escape"
+      status: "resolved"
+      category: "critical-bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-006"
+      title: "Special characters accepted in feature name field — breaks git/filesystem paths"
+      status: "resolved"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-007"
+      title: "Whitespace-only feature name passes validation — missing .trim() check"
+      status: "resolved"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-008"
+      title: "Tablet 768px shows full desktop sidebar — panels cramped to ~160px each"
+      status: "resolved"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-011"
+      title: "No max length on feature name input — allows arbitrarily long strings"
+      status: "resolved"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-015"
+      title: "New Session inside mobile sheet creates nested dialogs — confusing on small screens"
+      status: "resolved"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
 
 backlogs:
-  total: 27
+  total: 37
   by_status:
-    open: 22
+    open: 30
     in-progress: 0
-    done: 1
-    promoted: 4
+    done: 4
+    promoted: 3
     cancelled: 0
   items:
-    - id: "BL-001"
-      title: "Terminal panel — xterm.js + tmux integration"
-      status: "promoted"
-      category: "new-feature"
-      priority: "high"
-      tags: ["v1.1", "panel", "terminal"]
     - id: "BL-002"
       title: "Code editor panel — code-server integration"
       status: "open"
       category: "new-feature"
       priority: "high"
-      tags: ["v1.2", "panel", "editor"]
+      tags: []
     - id: "BL-003"
       title: "Playbook dashboard panel — live session tracking"
       status: "open"
       category: "new-feature"
       priority: "medium"
-      tags: ["v1.3", "panel", "playbook"]
+      tags: []
     - id: "BL-004"
       title: "AI Chat panel — Claude conversation interface"
       status: "open"
       category: "new-feature"
       priority: "medium"
-      tags: ["v1.4", "panel", "ai", "chat"]
+      tags: []
     - id: "BL-005"
       title: "AI Assistant overlay — contextual AI suggestions"
       status: "open"
       category: "new-feature"
       priority: "medium"
-      tags: ["v1.5", "panel", "ai", "assistant"]
+      tags: []
     - id: "BL-006"
       title: "Panel drag-and-drop — custom layout system"
       status: "open"
       category: "evolution"
       priority: "medium"
-      tags: ["v2.0", "layout", "ux"]
+      tags: []
     - id: "BL-007"
       title: "State persistence — .kaiui/ directory"
       status: "open"
       category: "new-feature"
       priority: "medium"
-      tags: ["v2.0", "persistence", "state"]
+      tags: []
     - id: "BL-008"
       title: "Kai governance dashboard — feature/agreement/knowledge overview"
       status: "open"
       category: "new-feature"
       priority: "high"
-      tags: ["v2.0", "governance", "dashboard"]
+      tags: []
     - id: "BL-009"
       title: "Multi-terminal support — split terminal within panel"
       status: "open"
       category: "evolution"
       priority: "low"
-      tags: ["v2.5", "terminal", "split"]
+      tags: []
     - id: "BL-010"
       title: "Keybinding system — vim-inspired keyboard navigation"
       status: "open"
       category: "new-feature"
       priority: "medium"
-      tags: ["v2.5", "keybindings", "ux"]
+      tags: []
     - id: "BL-011"
       title: "Theme engine — customizable cyberpunk variants"
       status: "open"
       category: "evolution"
       priority: "low"
-      tags: ["v2.5", "theme", "design"]
+      tags: []
     - id: "BL-012"
       title: "Real-time file watcher — live artifact updates"
       status: "open"
       category: "new-feature"
       priority: "medium"
-      tags: ["v2.0", "realtime", "filesystem"]
+      tags: []
     - id: "BL-013"
       title: "Session management — archive, delete, rename"
       status: "open"
       category: "evolution"
       priority: "medium"
-      tags: ["v2.0", "session", "management"]
+      tags: []
     - id: "BL-014"
       title: "Notification system — toast alerts for events"
       status: "open"
       category: "new-feature"
       priority: "low"
-      tags: ["v2.5", "notifications", "ux"]
+      tags: []
     - id: "BL-015"
       title: "Plugin system — third-party panel extensions"
       status: "open"
       category: "new-feature"
       priority: "low"
-      tags: ["v3.0", "plugin", "extensibility"]
+      tags: []
     - id: "BL-016"
       title: "Multi-project support — switch between kai repos"
       status: "open"
       category: "new-feature"
       priority: "medium"
-      tags: ["v3.0", "multi-project"]
+      tags: []
     - id: "BL-017"
       title: "Git integration panel — visual branch/worktree management"
       status: "open"
       category: "new-feature"
       priority: "medium"
-      tags: ["v3.0", "git", "panel"]
+      tags: []
     - id: "BL-018"
       title: "Electron/Tauri wrapper — standalone desktop app"
       status: "open"
       category: "new-feature"
       priority: "low"
-      tags: ["v3.0", "desktop", "electron"]
-    - id: "BL-019"
-      title: "Fix terminal WebSocket initial connection failure"
-      status: "done"
-      category: "critical-bug"
-      priority: "critical"
-      tags: ["terminal", "websocket", "connection"]
-    - id: "BL-020"
-      title: "Fix terminal Tab key focus trap — WCAG 2.1.2 keyboard escape"
-      status: "promoted"
-      category: "critical-bug"
-      priority: "critical"
-      tags: ["terminal", "accessibility", "keyboard", "focus-trap", "a11y", "wcag"]
-    - id: "BL-021"
-      title: "Fix mobile/responsive layout — sheet close failure and tablet breakpoint"
-      status: "promoted"
-      category: "critical-bug"
-      priority: "high"
-      tags: ["mobile", "responsive", "sidebar", "sheet", "tablet", "radix-ui"]
-    - id: "BL-022"
-      title: "Fix feature name input validation — special chars, whitespace, and max length"
-      status: "promoted"
-      category: "bug"
-      priority: "high"
-      tags: ["validation", "form", "feature-name", "session"]
-    - id: "BL-023"
-      title: "Fix session creation dialog UX — actionable errors, form reset, and abort"
-      status: "promoted"
-      category: "bug"
-      priority: "medium"
-      tags: ["session", "dialog", "form", "error-handling", "ux"]
+      tags: []
     - id: "BL-024"
       title: "Fix accessibility — missing dialog titles, form labels, and aria attributes"
       status: "open"
       category: "bug"
       priority: "medium"
-      tags: ["accessibility", "a11y", "aria", "dialog", "form", "screen-reader", "wcag"]
+      tags: []
     - id: "BL-025"
       title: "Improve panel interactivity affordance — hover states, cursor, and deselect feedback"
       status: "open"
       category: "evolution"
       priority: "low"
-      tags: ["ux", "panel", "hover", "cursor", "design", "interactivity"]
+      tags: []
     - id: "BL-026"
       title: "Improve terminal keyboard navigation UX — focus indicator and Escape-to-exit"
       status: "open"
       category: "evolution"
       priority: "medium"
-      tags: ["ux", "terminal", "keyboard", "focus", "accessibility", "a11y"]
+      tags: []
     - id: "BL-027"
       title: "Improve initial page load performance — LCP and font critical path"
       status: "open"
       category: "optimization"
       priority: "medium"
-      tags: ["performance", "lcp", "cwv", "font", "preload", "bundle", "hydration"]
+      tags: []
+    - id: "BL-028"
+      title: "Fix Create Session dialog double-click-to-close — Radix Select state interference"
+      status: "open"
+      category: "bug"
+      priority: "medium"
+      tags: []
+    - id: "BL-029"
+      title: "Fix feature name validation — reject trailing hyphens and consecutive hyphens"
+      status: "open"
+      category: "bug"
+      priority: "low"
+      tags: []
+    - id: "BL-030"
+      title: "Fix mobile sheet X button — click event not propagating to Radix SheetPrimitive.Close"
+      status: "open"
+      category: "bug"
+      priority: "high"
+      tags: []
+    - id: "BL-031"
+      title: "Fix API status codes — return 4xx for business logic errors instead of HTTP 500"
+      status: "open"
+      category: "bug"
+      priority: "low"
+      tags: []
+    - id: "BL-032"
+      title: "Fix accessibility — SheetTitle, aria-describedby missing in mobile nav and session dialog"
+      status: "open"
+      category: "bug"
+      priority: "medium"
+      tags: []
+    - id: "BL-033"
+      title: "Fix keyboard accessibility — panels ARIA roles, focus states, and skip navigation"
+      status: "promoted"
+      category: "bug"
+      priority: "high"
+      tags: []
+    - id: "BL-034"
+      title: "UX polish — header click affordance and empty-state when all panels toggled off"
+      status: "open"
+      category: "evolution"
+      priority: "low"
+      tags: []
+    - id: "BL-035"
+      title: "Fix panel layout — mobile terminal height overflow and desktop blank area below grid"
+      status: "open"
+      category: "optimization"
+      priority: "medium"
+      tags: []
+    - id: "BL-036"
+      title: "Fix playbook picker — filter out template and deprecated entries from session dialog"
+      status: "open"
+      category: "bug"
+      priority: "low"
+      tags: []
+    - id: "BL-037"
+      title: "Terminal clear-on-connect — reset display when new WebSocket session is established"
+      status: "open"
+      category: "evolution"
+      priority: "low"
+      tags: []
+    - id: "BL-020"
+      title: "Fix terminal Tab key focus trap — WCAG 2.1.2 keyboard escape"
+      status: "done"
+      category: "critical-bug"
+      priority: "critical"
+      tags: []
+    - id: "BL-021"
+      title: "Fix mobile/responsive layout — sheet close failure and tablet breakpoint"
+      status: "done"
+      category: "critical-bug"
+      priority: "high"
+      tags: []
+    - id: "BL-022"
+      title: "Fix feature name input validation — special chars, whitespace, and max length"
+      status: "done"
+      category: "bug"
+      priority: "high"
+      tags: []
+    - id: "BL-019"
+      title: "Fix terminal WebSocket initial connection failure"
+      status: "done"
+      category: "critical-bug"
+      priority: "critical"
+      tags: []
+    - id: "BL-001"
+      title: "Terminal panel — xterm.js + tmux integration"
+      status: "promoted"
+      category: "new-feature"
+      priority: "high"
+      tags: []
+    - id: "BL-023"
+      title: "Fix session creation dialog UX — actionable errors, form reset, and abort"
+      status: "promoted"
+      category: "bug"
+      priority: "medium"
+      tags: []
 
 metrics:
-  feedback_to_backlog_rate: 40.74
-  backlog_to_feature_rate: 18.52
+  feedback_to_backlog_rate: 105.41
+  backlog_to_feature_rate: 24.33

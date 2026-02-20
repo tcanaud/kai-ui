@@ -108,7 +108,7 @@ export function NewSessionDialog({ onSessionCreated, onBeforeOpen }: NewSessionD
         <Button
           variant="outline"
           size="sm"
-          className="w-full border-neon-cyan/30 text-neon-cyan hover:bg-neon-cyan-dim/20 hover:text-neon-cyan glow-cyan"
+          className="w-full border-neon-cyan/30 text-neon-cyan hover:bg-neon-cyan-dim/20 hover:text-neon-cyan glow-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-1 focus-visible:ring-offset-background"
         >
           <Plus className="h-4 w-4 mr-2" />
           New Session

@@ -22,7 +22,15 @@ export function SessionSidebar({
   onNavigate,
 }: SessionSidebarProps) {
   return (
-    <div className="flex flex-col h-full bg-sidebar">
+    <nav aria-label="Sessions" className="flex flex-col h-full bg-sidebar">
+      {/* Skip to main content link */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:px-4 focus:py-2 focus:bg-neon-cyan focus:text-background focus:font-mono focus:text-sm"
+      >
+        Skip to main content
+      </a>
+
       {/* Header */}
       <div className="px-4 py-4 border-b border-sidebar-border">
         <div className="flex items-center gap-2">
@@ -61,6 +69,6 @@ export function SessionSidebar({
       <div className="px-3 py-3 border-t border-sidebar-border">
         <NewSessionDialog onSessionCreated={onSessionCreated} onBeforeOpen={onNavigate} />
       </div>
-    </div>
+    </nav>
   );
 }

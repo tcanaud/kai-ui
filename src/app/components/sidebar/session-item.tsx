@@ -13,7 +13,8 @@ export function SessionItem({ session, isActive, onClick }: SessionItemProps) {
   return (
     <button
       onClick={onClick}
-      className={`w-full text-left px-3 py-2.5 rounded-md transition-all duration-150 group ${
+      aria-selected={isActive}
+      className={`w-full text-left px-3 py-2.5 rounded-md transition-all duration-150 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-1 focus-visible:ring-offset-background ${
         isActive
           ? "bg-neon-cyan-dim/20 border-glow-cyan border"
           : "hover:bg-secondary/80 border border-transparent"

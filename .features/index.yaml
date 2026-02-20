@@ -42,3 +42,15 @@ features:
     stage: "ideation"
     progress: 0.0
     health: "HEALTHY"
+  - id: "007-fix-keyboard-accessibility-panels-aria-roles-focus-states-and-skip-navigation"
+    title: "Fix Keyboard Accessibility — Panels ARIA Roles, Focus States, and Skip Navigation"
+    status: "active"
+    stage: "ideation"
+    progress: 0.0
+    health: "HEALTHY"
+  - id: "008-fix-mobile-sheet-x-button-click-event-not-propagating"
+    title: "Fix Mobile Sheet X Button — Click Event Not Propagating"
+    status: "active"
+    stage: "ideation"
+    progress: 0.0
+    health: "HEALTHY"

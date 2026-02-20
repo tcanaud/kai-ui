@@ -1,0 +1,60 @@
+qa_version: "1.0"
+
+feature_id: "007-fix-keyboard-accessibility-panels-aria-roles-focus-states-and-skip-navigation"
+generated: "2026-02-20T00:00:00Z"
+generator: "qa.plan"
+
+checksums:
+  spec_md:
+    path: "specs/007-fix-keyboard-accessibility-panels-aria-roles-focus-states-and-skip-navigation/spec.md"
+    sha256: "ba10546320d393c53e2285697f5ff566666bd62e178620e907c4defb379e2195"
+  agreement_yaml:
+    path: ".agreements/007-fix-keyboard-accessibility-panels-aria-roles-focus-states-and-skip-navigation/agreement.yaml"
+    sha256: null
+
+scripts:
+  - filename: "test-panels-keyboard-tab-focusable.mjs"
+    criterion_ref: "US1.AC1"
+    criterion_text: "Given the page has loaded with a session selected, When the user presses Tab to cycle through interactive elements, Then each panel (Terminal, Editor, Playbook, Chat, Assistant) receives focus in order, And each panel is reachable via keyboard Tab navigation."
+    type: "acceptance"
+
+  - filename: "test-panel-aria-pressed-on-activate.mjs"
+    criterion_ref: "US1.AC2"
+    criterion_text: "Given a panel has keyboard focus, When the user presses Enter or Space, Then aria-pressed on that panel changes to true, And the panel is visually activated."
+    type: "acceptance"
+
+  - filename: "test-panel-aria-pressed-only-one-active.mjs"
+    criterion_ref: "US1.AC3"
+    criterion_text: "Given a panel is active (aria-pressed='true'), When the user Tab-focuses the same panel and checks the DOM, Then aria-pressed is 'true' on the active panel, And aria-pressed is 'false' on all other panels."
+    type: "acceptance"
+
+  - filename: "test-session-button-focus-vs-selection-styles.mjs"
+    criterion_ref: "US2.AC1"
+    criterion_text: "Given a session list with at least one session, When a session button receives keyboard focus (Tab), Then a white focus ring (focus-visible:ring-2 focus-visible:ring-white) is visible around the button, And this ring is distinct from the neon-cyan border that marks the active (selected) session."
+    type: "acceptance"
+
+  - filename: "test-active-session-both-ring-and-highlight.mjs"
+    criterion_ref: "US2.AC2"
+    criterion_text: "Given the active session button also has keyboard focus, When inspecting the button, Then both the selection highlight (neon-cyan border) and the focus ring (white ring) are present simultaneously."
+    type: "acceptance"
+
+  - filename: "test-new-session-button-focus-ring.mjs"
+    criterion_ref: "US3.AC1"
+    criterion_text: "Given the sidebar is visible, When the user Tabs to the 'New Session' button, Then the button displays a focus-visible:ring-2 focus-visible:ring-white focus ring, And the ring is visible against the sidebar background."
+    type: "acceptance"
+
+  - filename: "test-sidebar-nav-landmark.mjs"
+    criterion_ref: "US4.AC1"
+    criterion_text: "Given the page is loaded, When inspecting the DOM, Then the sidebar root element is a <nav> with aria-label='Sessions', And this provides a landmark that assistive technology can jump to directly."
+    type: "acceptance"
+
+  - filename: "test-skip-link-visible-on-focus.mjs"
+    criterion_ref: "US4.AC2"
+    criterion_text: "Given the sidebar is visible, When the user presses Tab as the very first action on the page, Then the skip link ('Skip to main content') becomes visible, And activating it (Enter) moves focus to #main-content."
+    type: "acceptance"
+
+total_scripts: 8
+by_type:
+  acceptance: 8
+  interface: 0
+  edge_case: 0
