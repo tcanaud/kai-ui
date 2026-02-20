@@ -37,6 +37,18 @@ playbooks:
     file: "playbooks/pm-digest.yaml"
     description: "Full PM pipeline — triage new feedbacks into backlogs, check data integrity, review backlogs, promote high-priority items to features, and produce a health dashboard"
     steps: 6
+  - name: "autohotfix"
+    file: "playbooks/autohotfix.yaml"
+    description: "Full-auto hotfix — auto-selects the most urgent critical bug, promotes it, diagnoses, fixes, verifies, and ships. Zero manual input required."
+    steps: 8
+  - name: "autohotfix-old"
+    file: "playbooks/autohotfix-old.yaml"
+    description: "Full-auto hotfix — auto-selects the most urgent critical bug, promotes it, diagnoses, fixes, verifies, and ships. Zero manual input required."
+    steps: 7
+  - name: "hotfix2"
+    file: "playbooks/hotfix2.yaml"
+    description: "Lean hotfix — explore, diagnose, fix, and verify in minimal steps. No spec/plan/agreement ceremony."
+    steps: 7
   - name: "qa-mcp-chrome"
     file: "playbooks/qa-mcp-chrome.yaml"
     description: "Adversarial QA session via MCP Chrome DevTools — test the app like a real user, then intake feedbacks for every finding"
