@@ -143,7 +143,7 @@ export function useTerminal({
       const term = new Terminal({
         scrollback: 10000,
         cursorBlink: true,
-        fontFamily: "monospace",
+        fontFamily: "'MesloLGS NF', 'JetBrainsMono Nerd Font', 'Hack Nerd Font', 'FiraCode Nerd Font', 'JetBrains Mono', monospace",
         fontSize: 14,
         theme: terminalTheme,
         allowProposedApi: true,
@@ -204,12 +204,20 @@ export function useTerminal({
         }
         resizeDebounceRef.current = setTimeout(() => {
           if (disposed) return;
-          fitAddon.fit();
-          const ws = wsRef.current;
-          if (ws && ws.readyState === WebSocket.OPEN) {
-            ws.send(JSON.stringify({ type: "resize", cols: term.cols, rows: term.rows }));
-          }
-        }, 100);
+          requestAnimationFrame(() => {
+            if (disposed) return;
+            const prevCols = term.cols;
+            const prevRows = term.rows;
+            fitAddon.fit();
+            // Only send resize if dimensions actually changed
+            if (term.cols !== prevCols || term.rows !== prevRows) {
+              const ws = wsRef.current;
+              if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({ type: "resize", cols: term.cols, rows: term.rows }));
+              }
+            }
+          });
+        }, 150);
       });
       observer.observe(container!);
       resizeObserverRef.current = observer;
