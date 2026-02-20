@@ -1,5 +1,5 @@
 product_version: "1.0"
-updated: "2026-02-20T00:00:00.000Z"
+updated: "2026-02-20T00:01:00.000Z"
 
 feedbacks:
   total: 22
@@ -151,10 +151,10 @@ feedbacks:
 backlogs:
   total: 27
   by_status:
-    open: 23
+    open: 22
     in-progress: 0
     done: 0
-    promoted: 4
+    promoted: 5
     cancelled: 0
   items:
     - id: "BL-001"
@@ -291,7 +291,7 @@ backlogs:
       tags: ["validation", "form", "feature-name", "session"]
     - id: "BL-023"
       title: "Fix session creation dialog UX — actionable errors, form reset, and abort"
-      status: "open"
+      status: "promoted"
       category: "bug"
       priority: "medium"
       tags: ["session", "dialog", "form", "error-handling", "ux"]
@@ -322,4 +322,4 @@ backlogs:
 
 metrics:
   feedback_to_backlog_rate: 40.74
-  backlog_to_feature_rate: 14.81
+  backlog_to_feature_rate: 18.52

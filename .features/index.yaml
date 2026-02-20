@@ -36,3 +36,9 @@ features:
     stage: "ideation"
     progress: 0.0
     health: "HEALTHY"
+  - id: "006-fix-session-creation-dialog-ux-actionable-errors-form-reset-and-abort"
+    title: "Fix Session Creation Dialog UX — Actionable Errors, Form Reset, and Abort"
+    status: "active"
+    stage: "ideation"
+    progress: 0.0
+    health: "HEALTHY"

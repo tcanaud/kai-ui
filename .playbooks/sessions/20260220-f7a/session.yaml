@@ -1,0 +1,9 @@
+session_id: "20260220-f7a"
+playbook: "autohotfix"
+feature: "006-fix-session-creation-dialog-ux-actionable-errors-form-reset-and-abort"
+args: {}
+status: "in_progress"
+started_at: "2026-02-20T12:00:00Z"
+completed_at: ""
+current_step: ""
+worktree: ""

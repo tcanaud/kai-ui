@@ -1,0 +1,38 @@
+entries:
+  - step_id: "select-critical"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T12:00:00Z"
+    completed_at: "2026-02-20T12:01:03Z"
+    duration_seconds: 63
+  - step_id: "promote-to-feature"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T12:01:03Z"
+    completed_at: "2026-02-20T12:03:10Z"
+    duration_seconds: 127
+  - step_id: "diagnose-fix-verify"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T12:03:10Z"
+    completed_at: "2026-02-20T12:04:54Z"
+    duration_seconds: 104
+  - step_id: "qa-plan"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T12:04:54Z"
+    completed_at: "2026-02-20T12:07:45Z"
+    duration_seconds: 171
+  - step_id: "qa-run"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T12:07:45Z"
+    completed_at: "2026-02-20T12:13:09Z"
+    duration_seconds: 324
+  - step_id: "resolve"
+    status: "failed"
+    decision: "escalated"
+    started_at: "2026-02-20T12:13:09Z"
+    completed_at: "2026-02-20T12:13:41Z"
+    duration_seconds: 32
+    error: "Blocked — requires merged PR. PR not yet created (next step)."

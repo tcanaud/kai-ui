@@ -3,12 +3,12 @@ description: "Lean hotfix — explore, diagnose, fix, and verify in minimal step
 version: "1.0"
 
 args:
-  - name: "backlog"
+  - name: "backlog (optional - auto-select if omitted)"
     description: "Backlog ID to hotfix (e.g., BL-019)"
-    required: true
+    required: false
   - name: "issue"
     description: "Short description of the bug to fix (free text)"
-    required: true
+    required: false
 
 steps:
   - id: "select-critical"

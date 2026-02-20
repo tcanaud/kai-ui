@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -33,6 +33,19 @@ export function NewSessionDialog({ onSessionCreated }: NewSessionDialogProps) {
   const [featureName, setFeatureName] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const abortControllerRef = useRef<AbortController | null>(null);
+
+  function handleOpenChange(isOpen: boolean) {
+    setOpen(isOpen);
+    if (!isOpen) {
+      abortControllerRef.current?.abort();
+      abortControllerRef.current = null;
+      setSelectedPlaybook("");
+      setFeatureName("");
+      setError(null);
+      setLoading(false);
+    }
+  }
 
   useEffect(() => {
     if (open) {
@@ -49,21 +62,28 @@ export function NewSessionDialog({ onSessionCreated }: NewSessionDialogProps) {
     setLoading(true);
     setError(null);
 
+    const controller = new AbortController();
+    abortControllerRef.current = controller;
+
     try {
-      await createSession(selectedPlaybook, featureName);
+      await createSession(selectedPlaybook, featureName, controller.signal);
       setOpen(false);
       setSelectedPlaybook("");
       setFeatureName("");
       onSessionCreated();
     } catch (err) {
+      if (controller.signal.aborted) return;
       setError(err instanceof Error ? err.message : "Session creation failed");
     } finally {
-      setLoading(false);
+      if (!controller.signal.aborted) {
+        setLoading(false);
+      }
+      abortControllerRef.current = null;
     }
   }
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>
         <Button
           variant="outline"

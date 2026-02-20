@@ -1,0 +1,45 @@
+qa_version: "1.0"
+
+feature_id: "006-fix-session-creation-dialog-ux-actionable-errors-form-reset-and-abort"
+generated: "2026-02-20T00:00:00Z"
+generator: "qa.plan"
+
+checksums:
+  spec_md:
+    path: "specs/006-fix-session-creation-dialog-ux-actionable-errors-form-reset-and-abort/spec.md"
+    sha256: null
+  agreement_yaml:
+    path: ".agreements/006-fix-session-creation-dialog-ux-actionable-errors-form-reset-and-abort/agreement.yaml"
+    sha256: null
+
+scripts:
+  - filename: "test-reg1-error-message-shows-data-details.sh"
+    criterion_ref: "REG1"
+    criterion_text: "Given the session creation API returns a non-OK response with a JSON body containing a 'details' field, When the user submits the form, Then the error banner displays the text from data.details (not a generic fallback)."
+    type: "acceptance"
+
+  - filename: "test-reg2-form-resets-on-dialog-close.sh"
+    criterion_ref: "REG2"
+    criterion_text: "Given the New Session dialog is open and the user has filled in the Feature Name field and selected a Playbook, When the user closes the dialog without submitting, Then re-opening the dialog shows empty fields with no error banner and no loading spinner."
+    type: "acceptance"
+
+  - filename: "test-reg3-abort-cancels-inflight-request.sh"
+    criterion_ref: "REG3"
+    criterion_text: "Given the user has submitted the New Session form and the API request is in-flight (loading spinner visible), When the user closes the dialog, Then the in-flight fetch request is aborted and no error is displayed after close."
+    type: "acceptance"
+
+  - filename: "test-smoke1-successful-session-creation.sh"
+    criterion_ref: "SMOKE1"
+    criterion_text: "Given the New Session dialog is open and the API is healthy, When the user fills in a valid Playbook and Feature Name and submits, Then the session is created, the dialog closes, and the session list refreshes."
+    type: "acceptance"
+
+  - filename: "test-smoke2-submit-button-disabled-state.sh"
+    criterion_ref: "SMOKE2"
+    criterion_text: "Given the New Session dialog is open, When either the Playbook or Feature Name field is empty, Then the Create Session button is disabled and cannot be submitted."
+    type: "acceptance"
+
+total_scripts: 5
+by_type:
+  acceptance: 5
+  interface: 0
+  edge_case: 0
