@@ -1,0 +1,12 @@
+verdict: "PASS"
+feature_id: "013-fix-terminal-rendering-garbled-characters-xterm-screen-overflow-and-viewport-height"
+timestamp: "2026-02-20T21:00:00Z"
+results:
+  - script: "test-panel-slot-h-full.sh"
+    criterion_ref: "FIX1"
+    result: "PASS"
+    notes: "h-full added to PanelSlot root div"
+summary: "PanelSlot now fills its grid cell. Terminal xterm-screen will be constrained by overflow-hidden."
+total: 1
+passed: 1
+failed: 0

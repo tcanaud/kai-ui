@@ -1,0 +1,14 @@
+qa_version: "1.0"
+feature_id: "013-fix-terminal-rendering-garbled-characters-xterm-screen-overflow-and-viewport-height"
+generated: "2026-02-20T00:00:00Z"
+generator: "qa.plan"
+checksums:
+  spec_md: { path: "", sha256: null }
+  agreement_yaml: { path: "", sha256: null }
+scripts:
+  - filename: "test-panel-slot-h-full.sh"
+    criterion_ref: "FIX1"
+    criterion_text: "PanelSlot root div must have h-full class to fill grid cell"
+    type: "acceptance"
+total_scripts: 1
+by_type: { acceptance: 1, interface: 0, edge_case: 0 }

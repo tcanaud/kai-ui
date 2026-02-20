@@ -3,7 +3,7 @@ feature_version: "1.0"
 # ── Identity ──────────────────────────────────────────
 feature_id: "013-fix-terminal-rendering-garbled-characters-xterm-screen-overflow-and-viewport-height"
 title: "Fix Terminal Rendering — Garbled Characters, Xterm-Screen Overflow, And Viewport Height"
-status: "active"
+status: "done"
 owner: "Thibaud Canaud"
 created: "2026-02-20"
 updated: "2026-02-20"
@@ -14,9 +14,9 @@ tags: ["terminal", "xterm", "layout", "overflow"]
 
 # ── Lifecycle (computed) ──────────────────────────────
 lifecycle:
-  stage: "ideation"
+  stage: "release"
   stage_since: "2026-02-20"
-  progress: 0.0
+  progress: 1.0
   manual_override: null
 
 workflow_path: "full"

@@ -30,7 +30,7 @@ export function PanelSlot({ type, isActive, children }: PanelSlotProps) {
 
   return (
     <div
-      className={`flex flex-col rounded-lg border bg-card overflow-hidden transition-shadow ${
+      className={`h-full flex flex-col rounded-lg border bg-card overflow-hidden transition-shadow ${
         isActive ? "border-glow-cyan" : "border-border"
       }`}
     >
