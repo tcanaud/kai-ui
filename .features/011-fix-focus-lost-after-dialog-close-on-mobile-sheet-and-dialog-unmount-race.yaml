@@ -3,7 +3,7 @@ feature_version: "1.0"
 # ── Identity ──────────────────────────────────────────
 feature_id: "011-fix-focus-lost-after-dialog-close-on-mobile-sheet-and-dialog-unmount-race"
 title: "Fix Focus Lost After Dialog Close On Mobile — Sheet And Dialog Unmount Race"
-status: "active"
+status: "done"
 owner: "Thibaud Canaud"
 created: "2026-02-20"
 updated: "2026-02-20"
@@ -14,9 +14,9 @@ tags: ["a11y", "focus-management", "mobile", "regression"]
 
 # ── Lifecycle (computed) ──────────────────────────────
 lifecycle:
-  stage: "ideation"
+  stage: "release"
   stage_since: "2026-02-20"
-  progress: 0.0
+  progress: 1.0
   manual_override: null
 
 workflow_path: "full"

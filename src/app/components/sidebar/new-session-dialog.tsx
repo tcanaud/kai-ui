@@ -51,9 +51,6 @@ export function NewSessionDialog({ onSessionCreated, onBeforeOpen }: NewSessionD
   const abortControllerRef = useRef<AbortController | null>(null);
 
   function handleOpenChange(isOpen: boolean) {
-    if (isOpen) {
-      onBeforeOpen?.();
-    }
     setOpen(isOpen);
     if (!isOpen) {
       abortControllerRef.current?.abort();
