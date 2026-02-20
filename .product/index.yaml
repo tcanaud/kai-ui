@@ -2,19 +2,151 @@ product_version: "1.0"
 updated: "2026-02-20T00:00:00.000Z"
 
 feedbacks:
-  total: 0
+  total: 22
   by_status:
-    new: 0
+    new: 22
     triaged: 0
     excluded: 0
     resolved: 0
   by_category:
-    critical-bug: 0
-    bug: 0
-    optimization: 0
-    evolution: 0
+    critical-bug: 3
+    bug: 13
+    optimization: 2
+    evolution: 4
     new-feature: 0
-  items: []
+  items:
+    - id: "FB-001"
+      title: "Terminal panel shows 'Disconnected. Reconnecting...' on initial page load"
+      status: "new"
+      category: "critical-bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-002"
+      title: "Mobile sidebar sheet cannot be closed — intermittent critical blocker"
+      status: "new"
+      category: "critical-bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-003"
+      title: "Terminal textarea traps Tab focus — keyboard-only users cannot escape"
+      status: "new"
+      category: "critical-bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-004"
+      title: "Session creation HTTP 500 on dirty git tree — error message not actionable"
+      status: "new"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-005"
+      title: "Form state not reset on New Session dialog close — stale data on reopen"
+      status: "new"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-006"
+      title: "Special characters accepted in feature name field — breaks git/filesystem paths"
+      status: "new"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-007"
+      title: "Whitespace-only feature name passes validation — missing .trim() check"
+      status: "new"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-008"
+      title: "Tablet 768px shows full desktop sidebar — panels cramped to ~160px each"
+      status: "new"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-009"
+      title: "Missing DialogTitle in 4 Radix DialogContent components — screen reader a11y"
+      status: "new"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-010"
+      title: "Hamburger button has no aria-label — screen readers announce bare 'button'"
+      status: "new"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-011"
+      title: "No max length on feature name input — allows arbitrarily long strings"
+      status: "new"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-012"
+      title: "No request cancellation on dialog close — missing AbortController"
+      status: "new"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-013"
+      title: "Panel wrapper divs missing cursor:pointer despite having onClick handlers"
+      status: "new"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-014"
+      title: "Form fields missing id/name attributes and label for mismatch in Create Session dialog"
+      status: "new"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-015"
+      title: "New Session inside mobile sheet creates nested dialogs — confusing on small screens"
+      status: "new"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-016"
+      title: "LCP is 3,729ms — 98.5% render delay from JS bundle/hydration cost"
+      status: "new"
+      category: "optimization"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-017"
+      title: "Geist font WOFF2 in critical path (331ms) — could benefit from preload"
+      status: "new"
+      category: "optimization"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-018"
+      title: "Add hover states on panel cards for better interactivity affordance"
+      status: "new"
+      category: "evolution"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-019"
+      title: "Add visible focus indicator on terminal input for keyboard navigation"
+      status: "new"
+      category: "evolution"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-020"
+      title: "Consider Escape-to-exit-terminal pattern for keyboard navigation"
+      status: "new"
+      category: "evolution"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-021"
+      title: "Double-clicking active panel deselects it with no visual feedback or intent signal"
+      status: "new"
+      category: "evolution"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-022"
+      title: "xterm.js helper textarea missing id/name — console accessibility warning"
+      status: "new"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
 
 backlogs:
   total: 18
