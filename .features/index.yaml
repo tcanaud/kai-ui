@@ -15,8 +15,8 @@ features:
   - id: "002-fix-terminal-websocket-initial-connection-failure"
     title: "Fix Terminal WebSocket Initial Connection Failure"
     status: "active"
-    stage: "ideation"
-    progress: 0.0
+    stage: "release"
+    progress: 1.0
     health: "HEALTHY"
   - id: "003-fix-mobile-responsive-layout-sheet-close-failure-and-tablet-breakpoint"
     title: "Fix Mobile/Responsive Layout — Sheet Close Failure and Tablet Breakpoint"

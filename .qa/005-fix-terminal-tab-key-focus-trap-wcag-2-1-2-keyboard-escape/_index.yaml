@@ -1,0 +1,40 @@
+qa_version: "1.0"
+
+feature_id: "005-fix-terminal-tab-key-focus-trap-wcag-2-1-2-keyboard-escape"
+generated: "2026-02-20T00:00:00Z"
+generator: "qa.plan"
+
+checksums:
+  spec_md:
+    path: "specs/005-fix-terminal-tab-key-focus-trap-wcag-2-1-2-keyboard-escape/spec.md"
+    sha256: "3c01a73a3d8d0934c0468dd13b193049d4ca60a9156abcfd1c6ebf5e70557678"
+  agreement_yaml:
+    path: ".agreements/005-fix-terminal-tab-key-focus-trap-wcag-2-1-2-keyboard-escape/agreement.yaml"
+    sha256: null
+
+scripts:
+  - filename: "test-tab-moves-focus-out-of-terminal.mjs"
+    criterion_ref: "US1.AC1"
+    criterion_text: "Given the terminal is focused (the xterm canvas has browser focus), When the user presses the Tab key (no modifier keys), Then browser focus moves to the next focusable element outside the terminal, And the terminal does not process Tab as a terminal input character."
+    type: "acceptance"
+
+  - filename: "test-shift-tab-moves-focus-to-previous-element.mjs"
+    criterion_ref: "US1.AC2"
+    criterion_text: "Given the terminal is focused, When the user presses Shift+Tab, Then browser focus moves to the previous focusable element, And the terminal does not process Shift+Tab as a terminal input character."
+    type: "acceptance"
+
+  - filename: "test-modified-tab-stays-in-terminal.mjs"
+    criterion_ref: "US1.AC3"
+    criterion_text: "Given the terminal is focused, When the user presses Tab with Alt, Ctrl, or Meta held down, Then xterm processes the key normally as terminal input, And browser focus does NOT move away from the terminal."
+    type: "acceptance"
+
+  - filename: "test-regular-input-still-works.mjs"
+    criterion_ref: "US2.AC1"
+    criterion_text: "Given the terminal is connected and focused, When the user types regular characters (letters, numbers, Enter, arrow keys), Then input is sent to the PTY and the terminal responds normally."
+    type: "acceptance"
+
+total_scripts: 4
+by_type:
+  acceptance: 4
+  interface: 0
+  edge_case: 0

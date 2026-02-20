@@ -1,0 +1,9 @@
+session_id: "20260220-t5n"
+playbook: "autohotfix"
+feature: "005-fix-terminal-tab-key-focus-trap-wcag-2-1-2-keyboard-escape"
+args: {}
+status: "in_progress"
+started_at: "2026-02-20T18:44:00Z"
+completed_at: ""
+current_step: "commit"
+worktree: ""

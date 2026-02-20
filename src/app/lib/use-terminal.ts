@@ -155,6 +155,17 @@ export function useTerminal({
       term.open(container!);
       fitAddon.fit();
 
+      // WCAG 2.1.2 — Prevent keyboard trap on Tab key.
+      // Return false to let the browser handle focus navigation;
+      // return true to let xterm process the key as terminal input.
+      term.attachCustomKeyEventHandler((event: KeyboardEvent) => {
+        if (event.key === "Tab" && !event.altKey && !event.ctrlKey && !event.metaKey) {
+          // Allow Tab and Shift+Tab to move browser focus
+          return false;
+        }
+        return true;
+      });
+
       terminalRef.current = term;
       fitAddonRef.current = fitAddon;
 

@@ -5,9 +5,9 @@ feedbacks:
   total: 22
   by_status:
     new: 0
-    triaged: 22
+    triaged: 21
     excluded: 0
-    resolved: 0
+    resolved: 1
   by_category:
     critical-bug: 3
     bug: 13
@@ -17,7 +17,7 @@ feedbacks:
   items:
     - id: "FB-001"
       title: "Terminal panel shows 'Disconnected. Reconnecting...' on initial page load"
-      status: "triaged"
+      status: "resolved"
       category: "critical-bug"
       priority: null
       created: "2026-02-20"
@@ -153,8 +153,8 @@ backlogs:
   by_status:
     open: 22
     in-progress: 0
-    done: 0
-    promoted: 5
+    done: 1
+    promoted: 4
     cancelled: 0
   items:
     - id: "BL-001"
@@ -267,7 +267,7 @@ backlogs:
       tags: ["v3.0", "desktop", "electron"]
     - id: "BL-019"
       title: "Fix terminal WebSocket initial connection failure"
-      status: "promoted"
+      status: "done"
       category: "critical-bug"
       priority: "critical"
       tags: ["terminal", "websocket", "connection"]

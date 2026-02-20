@@ -14,10 +14,10 @@ tags: ["terminal", "websocket", "connection"]
 
 # ── Lifecycle (computed) ──────────────────────────────
 lifecycle:
-  stage: "ideation"
+  stage: "release"
   stage_since: "2026-02-20"
-  progress: 0.0
-  manual_override: null
+  progress: 1.0
+  manual_override: "release"
 
 # ── Artifacts (computed from scan) ────────────────────
 artifacts:
@@ -60,7 +60,7 @@ health:
 # ── Regression Detection ─────────────────────────────
 last_scan:
   timestamp: "2026-02-20T00:00:00.000Z"
-  stage: "ideation"
+  stage: "release"
   artifacts_snapshot:
     bmad_prd: false
     speckit_spec: false

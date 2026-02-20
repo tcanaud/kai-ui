@@ -1,0 +1,37 @@
+entries:
+  - step_id: "select-critical"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T18:44:01Z"
+    completed_at: "2026-02-20T18:44:02Z"
+    duration_seconds: 1
+  - step_id: "promote-to-feature"
+    status: "skipped"
+    decision: "auto"
+    started_at: "2026-02-20T18:44:02Z"
+    completed_at: "2026-02-20T18:44:02Z"
+    duration_seconds: 0
+  - step_id: "diagnose-fix-verify"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T18:44:03Z"
+    completed_at: "2026-02-20T18:45:05Z"
+    duration_seconds: 62
+  - step_id: "qa-plan"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T18:45:06Z"
+    completed_at: "2026-02-20T18:48:39Z"
+    duration_seconds: 213
+  - step_id: "start-servers"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T18:48:40Z"
+    completed_at: "2026-02-20T18:48:41Z"
+    duration_seconds: 1
+  - step_id: "qa-run"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T18:48:42Z"
+    completed_at: "2026-02-20T18:52:38Z"
+    duration_seconds: 236

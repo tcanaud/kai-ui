@@ -35,3 +35,15 @@ entries:
     started_at: "2026-02-20T18:37:11Z"
     completed_at: "2026-02-20T18:40:58Z"
     duration_seconds: 227
+  - step_id: "commit"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T18:40:59Z"
+    completed_at: "2026-02-20T18:41:19Z"
+    duration_seconds: 20
+  - step_id: "resolve"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T18:41:20Z"
+    completed_at: "2026-02-20T18:43:33Z"
+    duration_seconds: 133
