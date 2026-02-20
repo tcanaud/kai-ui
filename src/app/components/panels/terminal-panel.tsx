@@ -1,5 +1,6 @@
 "use client";
 
+import "@xterm/xterm/css/xterm.css";
 import { useRef } from "react";
 import { useTerminal } from "@/app/lib/use-terminal";
 import type { ConnectionState } from "@/app/lib/use-terminal";
