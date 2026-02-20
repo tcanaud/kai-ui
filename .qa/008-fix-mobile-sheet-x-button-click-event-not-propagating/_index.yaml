@@ -1,0 +1,33 @@
+qa_version: "1.0"
+
+feature_id: "008-fix-mobile-sheet-x-button-click-event-not-propagating"
+generated: "2026-02-20T00:00:00Z"
+generator: "qa.plan"
+
+checksums:
+  spec_md:
+    path: "specs/008-fix-mobile-sheet-x-button-click-event-not-propagating/spec.md"
+    sha256: "93fc9ca3ddd7f4df56906236a351d32c8e763bd0636aac38df0f15c65ceb2dec"
+  agreement_yaml:
+    path: ".agreements/008-fix-mobile-sheet-x-button-click-event-not-propagating/agreement.yaml"
+    sha256: null
+
+scripts:
+  - filename: "test-x-button-closes-sheet-mobile.sh"
+    criterion_ref: "US1.AC1"
+    criterion_text: "Given the mobile nav sheet is open (viewport <= 768px), When the user taps/clicks the X close button, Then the sheet closes and only the hamburger button is visible."
+    type: "acceptance"
+  - filename: "test-escape-closes-sheet.sh"
+    criterion_ref: "US2.AC1"
+    criterion_text: "Given the mobile nav sheet is open, When the user presses the Escape key, Then the sheet closes and only the hamburger button is visible."
+    type: "acceptance"
+  - filename: "test-desktop-close-no-regression.sh"
+    criterion_ref: "US3.AC1"
+    criterion_text: "Given the viewport is >= 1024px and the nav sheet is open, When the user clicks the X close button, Then the sheet closes and the desktop sidebar returns to its normal state."
+    type: "acceptance"
+
+total_scripts: 3
+by_type:
+  acceptance: 3
+  interface: 0
+  edge_case: 0

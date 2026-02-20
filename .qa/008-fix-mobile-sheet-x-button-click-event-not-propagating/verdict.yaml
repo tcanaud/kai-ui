@@ -1,0 +1,22 @@
+verdict: "PASS"
+feature_id: "008-fix-mobile-sheet-x-button-click-event-not-propagating"
+timestamp: "2026-02-20T20:30:00Z"
+
+results:
+  - script: "test-x-button-closes-sheet-mobile.sh"
+    criterion_ref: "US1.AC1"
+    result: "PASS"
+    notes: "Browser verification: X button at mobile viewport (375x812) closes the sheet. Close button moved before children in DOM and z-index bumped to z-[60]."
+  - script: "test-escape-closes-sheet.sh"
+    criterion_ref: "US2.AC1"
+    result: "PASS"
+    notes: "Radix Dialog handles Escape key natively — no code change needed."
+  - script: "test-desktop-close-no-regression.sh"
+    criterion_ref: "US3.AC1"
+    result: "PASS"
+    notes: "Desktop viewport verified — no regression."
+
+summary: "All 3 acceptance criteria pass. Fix: moved SheetPrimitive.Close button before {children} in DOM order and increased z-index to z-[60] to ensure it renders above sidebar content."
+total: 3
+passed: 3
+failed: 0
