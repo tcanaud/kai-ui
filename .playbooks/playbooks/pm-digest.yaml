@@ -19,6 +19,7 @@ steps:
   - id: "triage"
     command: "/product.triage"
     args: ""
+    model: "sonnet"
     autonomy: "auto"
     preconditions: []
     postconditions: []
@@ -40,6 +41,7 @@ steps:
   - id: "backlog-review"
     command: "/product.backlog"
     args: ""
+    model: "haiku"
     autonomy: "auto"
     preconditions: []
     postconditions: []
@@ -49,6 +51,7 @@ steps:
   - id: "promote"
     command: "/product.promote"
     args: "Analyze all open backlogs. Promote ONLY items that meet ALL of these criteria: (1) priority is critical or high, (2) has at least 2 linked feedbacks OR is a critical-bug, (3) is not a duplicate of an existing feature. For each qualifying item, run /product.promote BL-xxx. If no items qualify, skip and report why."
+    model: "sonnet"
     autonomy: "auto"
     preconditions: []
     postconditions: []

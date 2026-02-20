@@ -11,6 +11,7 @@ steps:
   - id: "inspect"
     command: "/product.backlog"
     args: "{{backlog}} — Inspect this backlog, confirm it is open or in-progress, and summarize scope, priority, and linked feedbacks."
+    model: "haiku"
     autonomy: "auto"
     preconditions: []
     postconditions: []
@@ -20,6 +21,7 @@ steps:
   - id: "promote"
     command: "/product.promote"
     args: "{{backlog}}"
+    model: "sonnet"
     autonomy: "auto"
     preconditions: []
     postconditions: []
@@ -30,6 +32,7 @@ steps:
   - id: "specify"
     command: "/speckit.specify"
     args: "Use the promoted feature ID from the previous step. Write a full specification based on the backlog scope, acceptance criteria, and linked feedbacks."
+    model: "sonnet"
     autonomy: "auto"
     preconditions: []
     postconditions:
@@ -42,6 +45,7 @@ steps:
   - id: "plan"
     command: "/speckit.plan"
     args: ""
+    model: "sonnet"
     autonomy: "auto"
     preconditions:
       - "spec_exists"
@@ -53,6 +57,7 @@ steps:
   - id: "tasks"
     command: "/speckit.tasks"
     args: ""
+    model: "sonnet"
     autonomy: "auto"
     preconditions:
       - "plan_exists"
@@ -64,6 +69,7 @@ steps:
   - id: "agreement"
     command: "/agreement.create"
     args: "Create agreement for the promoted feature using the spec, plan, and tasks."
+    model: "sonnet"
     autonomy: "auto"
     preconditions:
       - "tasks_exists"
@@ -76,6 +82,7 @@ steps:
   - id: "implement"
     command: "/speckit.implement"
     args: ""
+    model: "opus"
     autonomy: "auto"
     preconditions:
       - "agreement_exists"
@@ -88,6 +95,7 @@ steps:
   - id: "agreement-check"
     command: "/agreement.check"
     args: "Check the implementation against the agreement. Report any drift or breaking changes."
+    model: "sonnet"
     autonomy: "gate_on_breaking"
     preconditions: []
     postconditions:
@@ -99,6 +107,7 @@ steps:
   - id: "qa-plan"
     command: "/qa.plan"
     args: "Generate test plan based on the spec and agreement for the promoted feature."
+    model: "sonnet"
     autonomy: "auto"
     preconditions:
       - "agreement_pass"
@@ -110,6 +119,7 @@ steps:
   - id: "qa-run"
     command: "/qa.run"
     args: "Execute the test plan and produce a verdict."
+    model: "opus"
     autonomy: "auto"
     preconditions:
       - "qa_plan_exists"
@@ -122,6 +132,7 @@ steps:
   - id: "pr"
     command: "/feature.pr"
     args: "Create PR for the feature. Include backlog {{backlog}} traceability and linked feedbacks in the description."
+    model: "sonnet"
     autonomy: "gate_always"
     preconditions:
       - "qa_verdict_pass"
