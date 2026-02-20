@@ -11,6 +11,7 @@ steps:
   - id: "smoke-test"
     command: "/qa.run"
     args: "Navigate to {{target-url}} via MCP Chrome. Take a snapshot. Verify the page loads correctly: check for the kai ui heading, the sidebar button, and the welcome message. Take a screenshot. Report any missing elements or visual anomalies."
+    model: "sonnet"
     autonomy: "auto"
     preconditions: []
     postconditions: []
@@ -21,6 +22,7 @@ steps:
   - id: "sidebar-exploration"
     command: "/qa.run"
     args: "Test the sidebar like a real user. Open it, close it, open it again rapidly. Click the header area. Click empty space in the session list. Try to scroll when there are no sessions. Check that the sidebar overlay closes when clicking outside on mobile viewport (resize to 375x812). Report every odd behavior."
+    model: "opus"
     autonomy: "auto"
     preconditions: []
     postconditions: []
@@ -31,6 +33,7 @@ steps:
   - id: "session-creation-happy"
     command: "/qa.run"
     args: "Test session creation happy path. Open the New Session dialog. Check the form fields: playbook selector and feature name input. Try selecting a playbook, typing a feature name, and submitting. Verify the dialog closes and the session appears in the sidebar. Take screenshots at each step."
+    model: "sonnet"
     autonomy: "auto"
     preconditions: []
     postconditions: []
@@ -41,6 +44,7 @@ steps:
   - id: "session-creation-adversarial"
     command: "/qa.run"
     args: "Test session creation like a tester trying to break it. Try: submit with empty fields, submit with only playbook selected, submit with only feature name, type very long feature names (200+ chars), use special characters (!@#$%^&*), use spaces and unicode, double-click the submit button rapidly, press Enter multiple times, close dialog mid-submission, reopen dialog and check if form state is reset. Report every bug."
+    model: "opus"
     autonomy: "auto"
     preconditions: []
     postconditions: []
@@ -51,6 +55,7 @@ steps:
   - id: "panel-interaction"
     command: "/qa.run"
     args: "Test all panels in the main content area. Click each panel (Terminal, Editor, Playbook, Chat, Assistant). Check hover states, active states, click feedback. Double-click panels. Click rapidly between panels. Check that panel selection/deselection toggle works correctly. Take snapshots to verify DOM state changes."
+    model: "sonnet"
     autonomy: "auto"
     preconditions: []
     postconditions: []
@@ -61,6 +66,7 @@ steps:
   - id: "responsive-test"
     command: "/qa.run"
     args: "Test responsive behavior. Resize viewport to mobile (375x812), tablet (768x1024), and desktop (1440x900). At each size: take a screenshot, verify layout adapts correctly, check that mobile shows hamburger menu instead of sidebar, test the mobile sheet navigation opens and closes properly, verify panels stack vertically on mobile."
+    model: "sonnet"
     autonomy: "auto"
     preconditions: []
     postconditions: []
@@ -71,6 +77,7 @@ steps:
   - id: "keyboard-a11y"
     command: "/qa.run"
     args: "Test keyboard navigation and accessibility. Tab through all interactive elements — verify focus order is logical. Press Enter/Space on buttons. Press Escape to close dialogs and sheets. Check that focus is trapped inside open dialogs. Check that focus returns to trigger element after dialog closes. Verify all interactive elements have visible focus indicators. List any console accessibility warnings."
+    model: "opus"
     autonomy: "auto"
     preconditions: []
     postconditions: []
@@ -81,6 +88,7 @@ steps:
   - id: "console-network-audit"
     command: "/qa.run"
     args: "Audit console and network. List all console errors and warnings. List all network requests — check for failed requests (4xx, 5xx). Check for unexpected console.log spam. Check for React hydration errors. Check for unhandled promise rejections. Report every issue found with severity (critical, major, minor)."
+    model: "haiku"
     autonomy: "auto"
     preconditions: []
     postconditions: []
@@ -91,6 +99,7 @@ steps:
   - id: "performance-audit"
     command: "/qa.run"
     args: "Run a performance trace on {{target-url}} with reload and autoStop enabled. Analyze the Core Web Vitals (LCP, CLS, FID/INP). Check for long tasks, layout shifts, and render-blocking resources. Report findings with performance scores."
+    model: "sonnet"
     autonomy: "auto"
     preconditions: []
     postconditions: []
@@ -101,6 +110,7 @@ steps:
   - id: "feedback-intake"
     command: "/product.intake"
     args: "Compile ALL findings from the QA session into feedbacks. For each bug found: create a feedback with type=bug, severity, reproduction steps, and screenshot reference. For each UX improvement idea: create a feedback with type=evolution. Include console errors, a11y issues, performance findings, and any edge case failures discovered."
+    model: "sonnet"
     autonomy: "auto"
     preconditions: []
     postconditions: []

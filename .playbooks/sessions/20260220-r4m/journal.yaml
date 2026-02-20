@@ -1,0 +1,68 @@
+entries:
+  - step_id: "inspect"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T00:00:00Z"
+    completed_at: "2026-02-20T00:00:16Z"
+    duration_seconds: 16
+  - step_id: "promote"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T00:00:16Z"
+    completed_at: "2026-02-20T00:01:23Z"
+    duration_seconds: 67
+  - step_id: "specify"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T00:01:23Z"
+    completed_at: "2026-02-20T00:03:22Z"
+    duration_seconds: 119
+  - step_id: "plan"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T00:03:22Z"
+    completed_at: "2026-02-20T00:06:41Z"
+    duration_seconds: 199
+  - step_id: "tasks"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T00:06:41Z"
+    completed_at: "2026-02-20T00:08:28Z"
+    duration_seconds: 107
+  - step_id: "agreement"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T00:08:28Z"
+    completed_at: "2026-02-20T00:09:29Z"
+    duration_seconds: 61
+  - step_id: "implement"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T00:09:29Z"
+    completed_at: "2026-02-20T00:14:13Z"
+    duration_seconds: 284
+  - step_id: "agreement-check"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T00:14:13Z"
+    completed_at: "2026-02-20T00:15:04Z"
+    duration_seconds: 51
+  - step_id: "qa-plan"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T00:15:04Z"
+    completed_at: "2026-02-20T00:19:34Z"
+    duration_seconds: 270
+  - step_id: "qa-run"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T00:19:34Z"
+    completed_at: "2026-02-20T00:20:46Z"
+    duration_seconds: 72
+  - step_id: "pr"
+    status: "done"
+    decision: "gate"
+    started_at: "2026-02-20T00:20:46Z"
+    completed_at: "2026-02-20T00:22:41Z"
+    duration_seconds: 115
+    human_response: "yes"

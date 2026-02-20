@@ -1,0 +1,10 @@
+session_id: "20260220-r4m"
+playbook: "backlog-to-pr"
+feature: "001-terminal-panel-xterm-js-tmux-integration"
+args:
+  backlog: "BL-001"
+status: "completed"
+started_at: "2026-02-20T00:00:00Z"
+completed_at: "2026-02-20T00:22:41Z"
+current_step: ""
+worktree: ""

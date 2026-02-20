@@ -1,0 +1,81 @@
+agreement_version: "1.0"
+
+# ── Identity ──────────────────────────────────────────
+feature_id: "002-fix-terminal-websocket-initial-connection-failure"
+title: "Fix Terminal WebSocket Initial Connection Failure"
+status: "draft"
+created: "2026-02-20"
+updated: "2026-02-20"
+owner: "Thibaud Canaud"
+
+# ── Product Intent ────────────────────────────────────
+intent: |
+  The terminal panel must connect to the sidecar WebSocket server on the first
+  page load — without error overlays and without requiring a manual refresh.
+  The fix eliminates a race between async session resolution and WebSocket
+  connection attempts, and ensures connection-state labels (Connecting…,
+  Connection lost. Retrying…, Connection failed.) are semantically correct
+  throughout the full lifecycle.
+
+user_outcomes:
+  - "Opening the app with a running sidecar shows a live shell prompt within 3 seconds — no refresh needed."
+  - "The 'Disconnected. Reconnecting…' overlay is never shown on initial page load."
+  - "Connection status messages always accurately reflect the actual connection state."
+
+acceptance_criteria:
+  - criterion: "Terminal displays a live shell prompt within 3 s of page becoming interactive when sidecar is healthy."
+    verifiable: true
+  - criterion: "'Disconnected. Reconnecting…' overlay is never shown during the initial connection sequence."
+    verifiable: true
+  - criterion: "After a sidecar restart the terminal auto-reconnects and shows 'Connection lost. Retrying…' then a live prompt — no page reload required."
+    verifiable: true
+  - criterion: "When max retries are exhausted, 'Connection failed.' is shown with a Retry button."
+    verifiable: true
+
+# ── Interfaces ────────────────────────────────────────
+interfaces:
+  - type: "ui"
+    path: "src/app/lib/use-terminal.ts"
+    contract: "useTerminal hook — ConnectionState enum: idle | connecting | connected | disconnected | reconnecting | error"
+  - type: "ui"
+    path: "src/app/components/panels/terminal-panel.tsx"
+    contract: "ConnectionOverlay — renders correct message for each ConnectionState value"
+
+# ── Non-Functional Constraints ────────────────────────
+constraints:
+  - type: "performance"
+    description: "Terminal must connect within 3 seconds of page becoming interactive."
+  - type: "compatibility"
+    description: "Fix must not alter reconnection retry limits or retry delay backoff logic."
+
+# ── Breaking Change Policy ────────────────────────────
+breaking_changes:
+  policy: "agreement-first"
+  history: []
+
+# ── Traceability ──────────────────────────────────────
+references:
+  bmad: []
+  speckit:
+    - "specs/002-fix-terminal-websocket-initial-connection-failure/spec.md"
+    - "specs/002-fix-terminal-websocket-initial-connection-failure/plan.md"
+    - "specs/002-fix-terminal-websocket-initial-connection-failure/tasks.md"
+    - "specs/002-fix-terminal-websocket-initial-connection-failure/contracts/use-terminal-contract.ts"
+  code:
+    - "src/app/lib/use-terminal.ts"
+    - "src/app/components/panels/terminal-panel.tsx"
+  adr:
+    - ".adr/global/20260219-use-adr-system.md"
+
+# ── Drift Detection ──────────────────────────────────
+watched_paths:
+  bmad: []
+  speckit:
+    - "specs/002-fix-terminal-websocket-initial-connection-failure/spec.md"
+    - "specs/002-fix-terminal-websocket-initial-connection-failure/plan.md"
+    - "specs/002-fix-terminal-websocket-initial-connection-failure/contracts/use-terminal-contract.ts"
+  code:
+    - "src/app/lib/use-terminal.ts"
+    - "src/app/components/panels/terminal-panel.tsx"
+
+checksums: {}

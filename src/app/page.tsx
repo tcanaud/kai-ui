@@ -50,7 +50,7 @@ export default function Home() {
       onSessionCreated={loadSessions}
     >
       {activeSession ? (
-        <PanelLayout sessionId={activeSession.id} isMobile={isMobile} />
+        <PanelLayout sessionId={activeSession.id} worktreePath={activeSession.worktreePath} isMobile={isMobile} />
       ) : (
         <div className="flex flex-col items-center justify-center h-full gap-6">
           <div className="relative">

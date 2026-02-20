@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import { TerminalPlaceholder } from "./terminal-placeholder";
+import { TerminalPanel } from "./terminal-panel";
 import { EditorPlaceholder } from "./editor-placeholder";
 import { PlaybookPlaceholder } from "./playbook-placeholder";
 import { ChatPlaceholder } from "./chat-placeholder";
@@ -9,10 +9,11 @@ import { AssistantPlaceholder } from "./assistant-placeholder";
 
 interface PanelLayoutProps {
   sessionId: string;
+  worktreePath?: string;
   isMobile?: boolean;
 }
 
-export function PanelLayout({ sessionId, isMobile = false }: PanelLayoutProps) {
+export function PanelLayout({ sessionId, worktreePath = "", isMobile = false }: PanelLayoutProps) {
   const [activePanel, setActivePanel] = useState<string | null>(null);
 
   const handlePanelClick = useCallback((panelId: string) => {
@@ -23,7 +24,7 @@ export function PanelLayout({ sessionId, isMobile = false }: PanelLayoutProps) {
     return (
       <div className="flex flex-col gap-3 p-3">
         <div onClick={() => handlePanelClick("terminal")}>
-          <TerminalPlaceholder sessionId={sessionId} isActive={activePanel === "terminal"} />
+          <TerminalPanel sessionId={sessionId} isActive={activePanel === "terminal"} worktreePath={worktreePath} />
         </div>
         <div onClick={() => handlePanelClick("editor")}>
           <EditorPlaceholder sessionId={sessionId} isActive={activePanel === "editor"} />
@@ -45,7 +46,7 @@ export function PanelLayout({ sessionId, isMobile = false }: PanelLayoutProps) {
     <div className="grid grid-cols-3 grid-rows-2 gap-3 p-4 h-full">
       {/* Top row: Terminal (large) + Editor */}
       <div className="col-span-2 row-span-1" onClick={() => handlePanelClick("terminal")}>
-        <TerminalPlaceholder sessionId={sessionId} isActive={activePanel === "terminal"} />
+        <TerminalPanel sessionId={sessionId} isActive={activePanel === "terminal"} worktreePath={worktreePath} />
       </div>
       <div className="col-span-1 row-span-1" onClick={() => handlePanelClick("editor")}>
         <EditorPlaceholder sessionId={sessionId} isActive={activePanel === "editor"} />
