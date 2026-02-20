@@ -1,20 +1,158 @@
 product_version: "1.0"
-updated: "2026-02-20T00:00:00.000Z"
+updated: "2026-02-20T13:00:00.000Z"
 
 feedbacks:
-  total: 63
+  total: 86
   by_status:
     new: 0
-    triaged: 55
-    excluded: 0
+    triaged: 66
+    excluded: 12
     resolved: 8
   by_category:
     critical-bug: 9
-    bug: 37
-    optimization: 7
-    evolution: 10
+    bug: 51
+    optimization: 11
+    evolution: 15
     new-feature: 0
   items:
+    - id: "FB-064"
+      title: "Sheet X close button fails on touch devices — 16x16px below WCAG 44x44px minimum"
+      status: "excluded"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-065"
+      title: "Terminal panel missing role=button and tabIndex=0 — WCAG 2.1.2 keyboard accessibility violation"
+      status: "excluded"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-066"
+      title: "Create Session dialog missing DialogDescription / aria-describedby — WCAG 4.1.2"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-067"
+      title: "NewSessionDialog missing onBeforeOpen prop — mobile sheet stays open when dialog opens"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-068"
+      title: "Feature name validation accepts trailing hyphens — regex should require alphanumeric end"
+      status: "excluded"
+      category: "evolution"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-069"
+      title: "playbook.tpl template file appears as selectable option in playbook dropdown"
+      status: "excluded"
+      category: "evolution"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-070"
+      title: "No server-side length validation for feature name — only HTML maxLength enforced"
+      status: "excluded"
+      category: "evolution"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-071"
+      title: "LCP at 3,019ms exceeds 2,500ms threshold — xterm.js init delay"
+      status: "triaged"
+      category: "evolution"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-072"
+      title: "xterm.css loaded as render-blocking stylesheet despite terminal not being visible at load"
+      status: "triaged"
+      category: "evolution"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-073"
+      title: "Terminal input field missing id/name attributes — prevents browser autofill"
+      status: "excluded"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-074"
+      title: "CDP-based QA test scripts require Chrome remote debugging — CI execution blocked"
+      status: "triaged"
+      category: "optimization"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-075"
+      title: "Sheet X close button touch target too small (16px) — WCAG 2.5.5 violation on mobile"
+      status: "excluded"
+      category: "optimization"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-076"
+      title: "NewSessionDialog missing onBeforeOpen prop — sheet and dialog open simultaneously on mobile"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-077"
+      title: "QA test script has syntax error on line 140 — prevents module from loading"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-078"
+      title: "SMOKE1 test required fetch mock due to dirty working tree — no clean E2E environment"
+      status: "triaged"
+      category: "optimization"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-079"
+      title: "Create Session dialog missing aria-describedby — console warning on every open"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-080"
+      title: "#main-content missing tabindex=-1 — skip link focus transfer fails for screen readers"
+      status: "excluded"
+      category: "optimization"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-081"
+      title: "Terminal panel missing role=button and tabIndex — not keyboard reachable via Tab"
+      status: "excluded"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-082"
+      title: "Sheet X button click does not close on mobile — static analysis passes but browser fails"
+      status: "excluded"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-083"
+      title: "DialogContent and SheetContent missing aria-describedby — console warnings on every open/close"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-084"
+      title: "Hamburger menu button has no accessible label — screen readers announce bare 'button'"
+      status: "excluded"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-085"
+      title: "Mobile sidebar does not auto-close after session selection — user must close manually"
+      status: "triaged"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
+    - id: "FB-086"
+      title: "Sheet X close button fails on touch — works with mouse, fails with touch event emulation"
+      status: "excluded"
+      category: "bug"
+      priority: null
+      created: "2026-02-20"
     - id: "FB-040"
       title: "Shell command injection via unsanitized user input in exec()"
       status: "triaged"
@@ -431,9 +569,9 @@ feedbacks:
       created: "2026-02-20"
 
 backlogs:
-  total: 49
+  total: 54
   by_status:
-    open: 37
+    open: 42
     in-progress: 0
     done: 4
     promoted: 8
@@ -733,7 +871,37 @@ backlogs:
       category: "bug"
       priority: "medium"
       tags: []
+    - id: "BL-050"
+      title: "Fix mobile nav — close sheet before opening New Session dialog (prop-threading)"
+      status: "open"
+      category: "bug"
+      priority: "medium"
+      tags: ["mobile", "dialog", "sheet"]
+    - id: "BL-051"
+      title: "Migrate CDP-based QA test scripts to headless-compatible framework"
+      status: "open"
+      category: "optimization"
+      priority: "low"
+      tags: ["testing", "ci", "playwright"]
+    - id: "BL-052"
+      title: "Fix QA test script syntax error — invalid destructuring prevents module from loading"
+      status: "open"
+      category: "bug"
+      priority: "low"
+      tags: ["testing", "qa-script"]
+    - id: "BL-053"
+      title: "Add clean E2E test environment — bypass git dirty-tree check for QA runs"
+      status: "open"
+      category: "optimization"
+      priority: "low"
+      tags: ["testing", "e2e", "ci"]
+    - id: "BL-054"
+      title: "Fix mobile sidebar — auto-close sheet after session selection"
+      status: "open"
+      category: "bug"
+      priority: "medium"
+      tags: ["mobile", "sidebar", "ux"]
 
 metrics:
-  feedback_to_backlog_rate: 77.55
+  feedback_to_backlog_rate: 81.82
   backlog_to_feature_rate: 16.33

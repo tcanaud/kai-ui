@@ -1,0 +1,9 @@
+session_id: "20260220-n8f"
+playbook: "pm-digest"
+feature: ""
+args: {}
+status: "completed"
+started_at: "2026-02-20T12:31:30Z"
+completed_at: "2026-02-20T12:41:05Z"
+current_step: ""
+worktree: ""

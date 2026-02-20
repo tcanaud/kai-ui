@@ -1,0 +1,37 @@
+entries:
+  - step_id: "health-check-pre"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T12:31:30Z"
+    completed_at: "2026-02-20T12:32:13Z"
+    duration_seconds: 43
+  - step_id: "triage"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T12:32:13Z"
+    completed_at: "2026-02-20T12:37:23Z"
+    duration_seconds: 310
+  - step_id: "health-check-post"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T12:37:23Z"
+    completed_at: "2026-02-20T12:39:07Z"
+    duration_seconds: 104
+  - step_id: "backlog-review"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T12:39:07Z"
+    completed_at: "2026-02-20T12:39:42Z"
+    duration_seconds: 35
+  - step_id: "promote"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T12:39:42Z"
+    completed_at: "2026-02-20T12:40:24Z"
+    duration_seconds: 42
+  - step_id: "dashboard"
+    status: "done"
+    decision: "auto"
+    started_at: "2026-02-20T12:40:24Z"
+    completed_at: "2026-02-20T12:41:05Z"
+    duration_seconds: 41
