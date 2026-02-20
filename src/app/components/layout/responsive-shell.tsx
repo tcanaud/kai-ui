@@ -20,7 +20,7 @@ export function ResponsiveShell({
   children,
 }: ResponsiveShellProps) {
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="flex h-screen overflow-hidden" onContextMenu={(e) => e.preventDefault()}>
       {/* Desktop sidebar */}
       <div className="hidden lg:flex lg:w-72 lg:flex-shrink-0 border-r border-border">
         <SessionSidebar
