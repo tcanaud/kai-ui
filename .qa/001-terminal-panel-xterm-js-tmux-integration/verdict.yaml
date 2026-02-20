@@ -1,0 +1,8 @@
+verdict: PASS
+feature: "001-terminal-panel-xterm-js-tmux-integration"
+executed_at: "2026-02-20T00:20:00Z"
+total: 19
+passed: 19
+failed: 0
+skipped: 0
+notes: "All 19 scripts passed. 2 scripts skipped runtime checks (sidecar not running) and passed via static verification."

@@ -3,6 +3,12 @@
 # Lists all registered features for global discovery
 
 version: "1.0"
-updated: ""
+updated: "2026-02-20"
 
-features: []
+features:
+  - id: "001-terminal-panel-xterm-js-tmux-integration"
+    title: "Terminal Panel — Xterm.js + Tmux Integration"
+    status: "active"
+    stage: "ideation"
+    progress: 0.0
+    health: "HEALTHY"

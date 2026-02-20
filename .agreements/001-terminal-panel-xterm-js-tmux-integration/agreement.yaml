@@ -1,0 +1,80 @@
+agreement_version: "1.0"
+
+# ── Identity ──────────────────────────────────────────
+feature_id: "001-terminal-panel-xterm-js-tmux-integration"
+title: "Terminal Panel — xterm.js + tmux Integration"
+status: "draft"
+created: "2026-02-20"
+updated: "2026-02-20"
+owner: "Thibaud Canaud"
+
+# ── Product Intent ────────────────────────────────────
+intent: |
+  Replace the terminal placeholder with a fully functional xterm.js terminal
+  embedded in the panel slot, connected to the session's worktree tmux session
+  for persistent terminal state. Users get an in-app interactive shell with
+  copy/paste, scrollback, cyberpunk theming, and dynamic resize.
+
+user_outcomes:
+  - "Execute shell commands directly in the kai UI without switching to an external terminal"
+  - "Terminal state persists across page reloads and reconnections via tmux"
+  - "Terminal visually integrates with the kai cyberpunk design system"
+
+acceptance_criteria:
+  - criterion: "Terminal panel renders a live shell prompt within 3 seconds of becoming visible"
+    verifiable: true
+  - criterion: "Terminal state survives a full page refresh when the backend tmux session is healthy"
+    verifiable: true
+  - criterion: "Copy/paste works between terminal and system clipboard on all supported browsers"
+    verifiable: true
+  - criterion: "Full-screen TUI applications render correctly after panel resize with no artifacts"
+    verifiable: true
+  - criterion: "Connection failures display an actionable error state within 5 seconds"
+    verifiable: true
+
+# ── Interfaces ────────────────────────────────────────
+interfaces:
+  - type: "ui"
+    path: "src/app/components/panels/terminal-panel.tsx"
+    contract: "React component rendering xterm.js in the terminal panel slot"
+  - type: "api"
+    path: "ws://localhost:3001/terminal/:sessionId"
+    contract: "WebSocket bidirectional channel — raw text for I/O, JSON for resize/error/exit"
+  - type: "api"
+    path: "GET /health"
+    contract: "HTTP health endpoint on the sidecar server (port 3001)"
+
+# ── Non-Functional Constraints ────────────────────────
+constraints:
+  - type: "performance"
+    description: "Command output visible within 1 second; shell prompt within 3 seconds; resize debounce 100ms"
+  - type: "compatibility"
+    description: "macOS/Linux host with tmux installed; modern browsers (Chrome, Firefox, Safari)"
+
+# ── Breaking Change Policy ────────────────────────────
+breaking_changes:
+  policy: "agreement-first"
+  history: []
+
+# ── Traceability ──────────────────────────────────────
+references:
+  bmad: []
+  speckit:
+    - "specs/001-terminal-panel-xterm-js-tmux-integration/spec.md"
+    - "specs/001-terminal-panel-xterm-js-tmux-integration/plan.md"
+    - "specs/001-terminal-panel-xterm-js-tmux-integration/tasks.md"
+  code: []
+  adr: []
+
+# ── Drift Detection ──────────────────────────────────
+watched_paths:
+  bmad: []
+  speckit:
+    - "specs/001-terminal-panel-xterm-js-tmux-integration/"
+  code:
+    - "src/app/components/panels/terminal-panel.tsx"
+    - "src/app/lib/use-terminal.ts"
+    - "src/app/lib/terminal-theme.ts"
+    - "src/terminal-server/"
+
+checksums: {}

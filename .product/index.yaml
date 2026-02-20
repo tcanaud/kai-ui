@@ -1,5 +1,5 @@
 product_version: "1.0"
-updated: "2026-02-19T23:00:00.000Z"
+updated: "2026-02-20T00:00:00.000Z"
 
 feedbacks:
   total: 0
@@ -19,15 +19,15 @@ feedbacks:
 backlogs:
   total: 18
   by_status:
-    open: 18
+    open: 17
     in-progress: 0
     done: 0
-    promoted: 0
+    promoted: 1
     cancelled: 0
   items:
     - id: "BL-001"
       title: "Terminal panel — xterm.js + tmux integration"
-      status: "open"
+      status: "promoted"
       category: "new-feature"
       priority: "high"
       tags: ["v1.1", "panel", "terminal"]
@@ -136,4 +136,4 @@ backlogs:
 
 metrics:
   feedback_to_backlog_rate: 0.0
-  backlog_to_feature_rate: 0.0
+  backlog_to_feature_rate: 5.56
